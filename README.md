@@ -2,7 +2,6 @@
 
 A modern web application for managing files in AWS S3 with Firebase authentication.
 
-![AWS File Manager Screenshot](src/screenshot.png)
 
 ## Features
 
