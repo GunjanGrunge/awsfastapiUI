@@ -2244,8 +2244,23 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Cost link handler
     document.getElementById('cost-link').addEventListener('click', async function(e) {
         e.preventDefault();
-        updateCostModal();
-        $('#costModal').modal('show');
+        // Hide other sections
+        document.getElementById('home-section').classList.add('d-none');
+        document.getElementById('folders-section').classList.add('d-none');
+        document.getElementById('history-section').classList.add('d-none');
+        
+        // Show cost section
+        const costSection = document.getElementById('cost-section');
+        costSection.classList.remove('d-none');
+        
+        // Update navigation active state
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        this.parentElement.classList.add('active');
+        
+        // Update the costs
+        await updateCosts();
     });
 
     // Function to calculate AWS costs
@@ -2439,4 +2454,87 @@ document.getElementById('history-link').addEventListener('click', function(e) {
     document.getElementById('home-section').classList.add('d-none');
     document.getElementById('folders-section').classList.add('d-none');
     document.getElementById('history-section').classList.remove('d-none');
+});
+
+// ...existing code...
+
+document.addEventListener('DOMContentLoaded', async function() {
+    // ...existing code...
+
+    // Cost link handler
+    document.getElementById('cost-link').addEventListener('click', async function(e) {
+        e.preventDefault();
+        // Hide other sections
+        document.getElementById('home-section').classList.add('d-none');
+        document.getElementById('folders-section').classList.add('d-none');
+        document.getElementById('history-section').classList.add('d-none');
+        
+        // Show cost section
+        const costSection = document.getElementById('cost-section');
+        costSection.classList.remove('d-none');
+        
+        // Update navigation active state
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        this.parentElement.classList.add('active');
+        
+        // Update the costs
+        await updateCosts();
+    });
+
+    // Function to calculate AWS costs
+    function getOrdinalSuffix(day) {
+        if (day > 3 && day < 21) return 'th';
+        switch (day % 10) {
+            case 1: return 'st';
+            case 2: return 'nd';
+            case 3: return 'rd';
+            default: return 'th';
+        }
+    }
+   
+    function formatDate() {
+        const date = new Date();
+        const day = date.getDate();
+        const month = date.toLocaleString('en-US', { month: 'short' });
+        const year = date.getFullYear();
+        return `${day}${getOrdinalSuffix(day)} ${month} ${year}`;
+    }
+    async function updateCosts() {
+        try {
+            // Get total storage used
+            const data = await s3.listObjectsV2({
+                Bucket: window.appConfig.AWS_BUCKET_NAME
+            }).promise();
+
+            let totalSize = 0;
+            data.Contents.forEach(item => {
+                totalSize += item.Size;
+            });
+
+            // Calculate costs (using AWS S3 Standard pricing)
+            const storageGB = totalSize / (1024 * 1024 * 1024);
+            const storageCost = storageGB * 0.023; // $0.023 per GB per month
+           
+            // Calculate transfer cost (example: assuming 10% of storage is transferred)
+            const transferGB = storageGB * 0.1;
+            const transferCost = transferGB * 0.09; // $0.09 per GB for data transfer
+
+            // Total cost
+            const totalCost = storageCost + transferCost;
+
+            // Update modal with costs
+            document.getElementById('current-cost').textContent = totalCost.toFixed(2);
+            document.getElementById('storage-cost').textContent = storageCost.toFixed(2);
+            document.getElementById('transfer-cost').textContent = transferCost.toFixed(2);
+            document.getElementById('cost-date').textContent = `As of ${formatDate().toLocaleString()}`;
+
+        } catch (error) {
+            console.error('Error calculating costs:', error);
+            showToast('Error calculating AWS costs', 'danger');
+        }
+    }
+
+    // ...existing code...
 });

@@ -1,24 +1,18 @@
 /* Base Styles */
 body {
-    font-family: "Poppins", serif;
-    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
     font-style: normal;
-    background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     padding-bottom: 100px;
     color: #333333;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #2c3e50, #3498db, #2980b9);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    padding-bottom: 100px;
 }
 
 /* Navbar Styles */
 .navbar {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    padding: 1rem;
-    box-shadow: 0 4px 20px rgba(58, 57, 57, 0.15);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(to right, #1e293b, #334155);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
@@ -29,9 +23,117 @@ body {
     margin-right: 2rem;
 }
 
+.navbar-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+.navbar-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+/* Navigation Links */
+.navbar-nav .nav-link {
+    font-family: 'Poppins', sans-serif;
+    color: #e2e8f0 !important;
+    padding: 0.7rem 1rem !important;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+.navbar-nav .nav-link:hover {
+    background: rgba(226, 232, 240, 0.1);
+    transform: translateY(-1px);
+    color: #ffffff !important;
+}
+
+.navbar-nav .active .nav-link {
+    background: rgba(226, 232, 240, 0.15);
+    color: #ffffff !important;
+}
+
+/* User Dropdown */
+#userDropdown {
+    background: rgba(226, 232, 240, 0.1);
+    border-radius: 20px;
+    padding: 0.5rem 1.2rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(226, 232, 240, 0.1);
+}
+
+#userDropdown:hover {
+    background: rgba(226, 232, 240, 0.15);
+}
+
+#display-name {
+    color: #e2e8f0 !important;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    background: #1e293b;
+    border: 1px solid rgba(226, 232, 240, 0.1);
+    border-radius: 8px;
+}
+
+.dropdown-item {
+    font-family: 'Poppins', sans-serif;
+    color: #e2e8f0 !important;
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+}
+
+.dropdown-item:hover {
+    background: rgba(226, 232, 240, 0.1);
+    color: #ffffff !important;
+}
+
+/* Base Styles */
+body {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-style: normal;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+    padding-bottom: 100px;
+    color: #333333;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+    margin-right: 2rem;
+    color: #2c3e50 !important;
+}
+
 .navbar-logo {
-    height: 50px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    height: 40px;
+    
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -41,18 +143,17 @@ body {
 }
 
 .navbar-title {
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: #2c3e50;
     margin: 0;
     line-height: 1.5;
 }
 
 .navbar-subtitle {
-    font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 400;
+    font-size: 0.8rem;
+    color: #5a6c7d;
+    font-weight: 600;
 }
 
 /* Navigation Links */
@@ -61,9 +162,9 @@ body {
 }
 
 .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.85) !important;
-    padding: 0.7rem 1.2rem !important;
-    border-radius: 8px;
+    color: #2c3e50 !important;
+    padding: 0.7rem 1rem !important;
+    border-radius: 6px;
     transition: all 0.3s ease;
     font-weight: 500;
     position: relative;
@@ -87,9 +188,8 @@ body {
 }
 
 .navbar-nav .nav-link:hover {
-    color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
+    background: rgba(44, 62, 80, 0.1);
+    transform: translateY(-1px);
 }
 
 .navbar-nav .nav-link i {
@@ -103,8 +203,8 @@ body {
 }
 
 .navbar-nav .active .nav-link {
-    background: rgba(255, 255, 255, 0.15);
-    color: #ffffff !important;
+    background: rgba(44, 62, 80, 0.15);
+    color: #2c3e50 !important;
 }
 
 .navbar-nav .active .nav-link::before {
@@ -116,14 +216,15 @@ body {
     display: flex;
     align-items: center;
     padding: 0.5rem 1.2rem;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    background: rgba(44, 62, 80, 0.1);
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #2c3e50 !important;
 }
 
 #userDropdown:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(44, 62, 80, 0.15);
     border-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -141,10 +242,12 @@ body {
 
 /* Dropdown Menu */
 .dropdown-menu {
-    background: #ffffff;
-    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 12px;
     padding: 0.5rem;
     min-width: 220px;
@@ -163,7 +266,7 @@ body {
 }
 
 .dropdown-item {
-    color: #1a1a2e !important;
+    color: #2c3e50 !important;
     padding: 0.8rem 1rem;
     border-radius: 8px;
     display: flex;
@@ -180,9 +283,8 @@ body {
 }
 
 .dropdown-item:hover {
-    background: rgba(0, 198, 255, 0.1);
+    background: rgba(44, 62, 80, 0.1);
     transform: translateX(5px);
-    color: #00c6ff !important;
 }
 
 .dropdown-divider {
@@ -193,11 +295,13 @@ body {
 /* Responsive Navbar */
 @media (max-width: 992px) {
     .navbar-collapse {
-        background: rgba(26, 26, 46, 0.98);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         padding: 1rem;
-        border-radius: 12px;
-        margin-top: 1rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        margin-top: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .navbar-nav .nav-item {
@@ -425,7 +529,10 @@ body {
 
 /* Footer */
 footer {
-    background: linear-gradient(135deg, #2c3e50, #3498db) !important;
+    background: rgba(44, 62, 80, 0.95) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     opacity: 0.95 !important;
 }
 
@@ -438,7 +545,7 @@ footer {
 /* Clean up unused styles ... */
 body, .navbar, .modal-title {
     font-family: 'Audiowide', serif;
-    background: linear-gradient(to right, #bdc3c7, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding-bottom: 100px !important; /* Ensure content doesn't get hidden behind footer */
     color: #333333; /* Dark gray text for improved readability */
 }
@@ -621,7 +728,7 @@ body, .navbar, .modal-title {
 }
 
 #cost-section .card-title {
-    color: #495057;
+  
     font-size: 1.2rem;
 }
 
@@ -1269,1123 +1376,6 @@ body, .navbar, .modal-title {
 #clearHistoryModal .modal-content {
     border: none;
    
-    
-}
-
-#clearHistoryModal .modal-header {
-    border-bottom: none;
-    padding: 1.5rem;
-  
-}
-
-#clearHistoryModal .modal-title {
-    color: #ffffff;
-    font-size: 1.2rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-}
-
-#clearHistoryModal .modal-title i {
-    margin-right: 10px;
-    color: #ffc107;
-}
-
-#clearHistoryModal .modal-body {
-    color: #ffffff;
-    font-size: 1.1rem;
-    padding: 2rem;
- 
-}
-
-#clearHistoryModal .modal-footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-}
-
-#clearHistoryModal .close {
-    color: #ffffff;
-    text-shadow: none;
-    opacity: 0.8;
-}
-
-#clearHistoryModal .close:hover {
-    opacity: 1;
-}
-
-/* ...existing code... */
-
-/* Clear History Modal Styles - with higher specificity */
-#clearHistoryModal.modal .modal-content {
-    border: none !important;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2) !important;
-    background: #ffffff !important;
-}
-
-#clearHistoryModal.modal .modal-header {
-    background: #dc3545 !important;
-    border-bottom: none !important;
-    padding: 1.5rem !important;
-    border-top-left-radius: 0.3rem !important;
-    border-top-right-radius: 0.3rem !important;
-}
-
-#clearHistoryModal.modal .modal-header .modal-title {
-    color: #ffffff !important;
-    font-size: 1.2rem !important;
-    font-weight: 500 !important;
-    display: flex !important;
-    align-items: center !important;
-}
-
-#clearHistoryModal.modal .modal-header .fa-exclamation-triangle {
-    color: #ffc107 !important;
-    margin-right: 10px !important;
-}
-
-#clearHistoryModal.modal .modal-header .close {
-    color: #ffffff !important;
-    text-shadow: none !important;
-    opacity: 0.8 !important;
-    padding: 1rem !important;
-    margin: -1rem !important;
-}
-
-#clearHistoryModal.modal .modal-header .close:hover {
-    opacity: 1 !important;
-}
-
-#clearHistoryModal.modal .modal-body {
-    color: hsl(210, 11%, 15%) !important;
-    background: #ffffff !important;
-    font-size: 1.1rem !important;
-    padding: 2rem !important;
-}
-
-#clearHistoryModal.modal .modal-footer {
-    background: #ffffff !important;
-    border-top: 1px solid #dee2e6 !important;
-    padding: 1rem !important;
-}
-
-/* ...existing code... */
-
-/* Clear History Modal Styles - with higher specificity and overrides */
-.modal#clearHistoryModal {
-    z-index: 1060 !important;
-}
-
-.modal#clearHistoryModal .modal-dialog {
-    margin-top: 10vh;
-}
-
-.modal#clearHistoryModal .modal-content {
-    background: #ffffff !important;
-    border: none !important;
-    border-radius: 8px !important;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2) !important;
-}
-
-.modal#clearHistoryModal .modal-header {
-    background: #dc3545 !important;
-    border-bottom: none !important;
-    border-top-left-radius: 8px !important;
-    border-top-right-radius: 8px !important;
-    padding: 1rem !important;
-}
-
-.modal#clearHistoryModal .modal-title {
-    color: #ffffff !important;
-    font-size: 1.1rem !important;
-    font-weight: 500 !important;
-    display: flex !important;
-    background: #dc3545 !important;
-    align-items: center !important;
-}
-
-.modal#clearHistoryModal .modal-title .fa-exclamation-triangle {
-    color: #ffc107 !important;
-    margin-right: 10px !important;
-}
-
-.modal#clearHistoryModal .modal-body {
-    background: #ffffff !important;
-    color: #333333 !important;
-    padding: 1.5rem !important;
-}
-
-.modal#clearHistoryModal .modal-footer {
-    background: #ffffff !important;
-    border-top: 1px solid #dee2e6 !important;
-    padding: 1rem !important;
-    border-bottom-left-radius: 8px !important;
-    border-bottom-right-radius: 8px !important;
-}
-
-.modal#clearHistoryModal .close {
-    color: #ffffff !important;
-    opacity: 0.8 !important;
-    text-shadow: none !important;
-    margin: -0.5rem -0.5rem -0.5rem auto !important;
-}
-
-.modal#clearHistoryModal .close:hover {
-    opacity: 1 !important;
-}
-
-/* ...existing code... */
-
-/* Toast Container and Notifications */
-.toast-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1070;
-}
-
-.toast {
-    min-width: 250px;
-    background-color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    margin-bottom: 0.75rem;
-}
-
-.toast .toast-header {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.toast .toast-body {
-    padding: 1rem;
-    color: #333333;
-    font-size: 0.95rem;
-}
-
-/* Toast Header Types */
-.toast .toast-header.bg-success {
-    background-color: #28a745 !important;
-    color: #ffffff;
-}
-
-.toast .toast-header.bg-danger {
-    background-color: #dc3545 !important;
-    color: #ffffff;
-}
-
-.toast .toast-header.bg-info {
-    background-color: #17a2b8 !important;
-    color: #ffffff;
-}
-
-.toast .toast-header.bg-warning {
-    background-color: #ffc107 !important;
-    color: #000000;
-}
-
-/* Toast Close Button */
-.toast .close {
-    color: inherit;
-    text-shadow: none;
-    opacity: 0.8;
-}
-
-.toast .close:hover {
-    opacity: 1;
-}
-
-/* Toast Message Types */
-.toast.bg-success .toast-body {
-    color: #155724;
-    background-color: #d4edda;
-}
-
-.toast.bg-danger .toast-body {
-    color: #721c24;
-    background-color: #f8d7da;
-}
-
-.toast.bg-info .toast-body {
-    color: #0c5460;
-    background-color: #d1ecf1;
-}
-
-.toast.bg-warning .toast-body {
-    color: #856404;
-    background-color: #fff3cd;
-}
-
-/* ...existing code... */
-
-/* Cost Modal Styles */
-
-#costModal .modal-content {
-    
-    color: #ffffff;
-}
-
-#costModal .modal-header {
-    background: none;
-    border-bottom: 1px solid #454d55;
-}
-
-#costModal .modal-title {
-    background: none;
-    color: white;
-    padding: 10px;
-    width: 100%;
-}
-#costModal .cost-info {
-    text-align: center;
-    padding: 2rem;
-}
-
-#costModal .current-cost h2 {
-    font-size: 3rem;
-    margin: 0;
-    color: #00ff88;
-    font-weight: 600;
-    margin-top: -10px;
-}
-
-#costModal .cost-details {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin-top: 1rem; 
-}
-
-#costModal .cost-details h5 {
-    color: #ffffff;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-#small .cost-details p {
-    color: #00ff88;
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin: 0;
-}
-
-#costModal #cost-date {
-    color: #ffffff !important;
-    opacity: 1;
-}
-
-/* This overrides Bootstrap's text-muted class */
-#costModal .text-muted {
-    color: #ffffff !important;
-}
-
-/* ...existing code... */
-
-/* Enhanced Cost Modal Styles */
-#costModal .modal-content {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-#costModal .modal-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-}
-
-#costModal .modal-title {
-    color: #ffffff;
-    font-size: 1.5rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: none;
-}
-
-#costModal .modal-title i {
-    color: #00c6ff;
-    font-size: 1.8rem;
-}
-
-#costModal .modal-body {
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.02);
-}
-
-#costModal .cost-info {
-    text-align: center;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    position: relative;
-    overflow: hidden;
-}
-
-#costModal .cost-info::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(0, 198, 255, 0.1), rgba(0, 114, 255, 0.1));
-    z-index: 0;
-}
-
-#costModal .current-cost {
-    position: relative;
-    z-index: 1;
-}
-
-#costModal .current-cost h2 {
-    font-size: 3.5rem;
-    margin: 0;
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-    line-height: 1.2;
-    font-family: 'Poppins', sans-serif;
-}
-
-#costModal .current-cost small {
-    display: block;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
-    margin-top: 0.5rem;
-}
-
-#costModal .cost-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-#costModal .cost-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-#costModal .cost-card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.08);
-}
-
-#costModal .cost-card h5 {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-#costModal .cost-card p {
-    color: #00c6ff;
-    font-size: 1.5rem;
-    margin: 0;
-    font-weight: 600;
-}
-
-#costModal .cost-date {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: 1.5rem;
-    font-size: 0.9rem;
-}
-
-#costModal .cost-chart {
-    margin-top: 2rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    padding: 1.5rem;
-}
-
-/* Cost Breakdown Section */
-#costModal .cost-breakdown {
-    margin-top: 2rem;
-}
-
-#costModal .breakdown-title {
-    color: #ffffff;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    font-weight: 500;
-}
-
-#costModal .breakdown-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-}
-
-#costModal .breakdown-item {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-#costModal .breakdown-item i {
-    color: #00c6ff;
-    font-size: 1.2rem;
-}
-
-#costModal .breakdown-item span {
-    color: #ffffff;
-    font-size: 0.9rem;
-}
-
-#costModal .breakdown-item strong {
-    color: #00c6ff;
-    margin-left: auto;
-}
-
-/* Modal Footer */
-#costModal .modal-footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.02);
-}
-
-#costModal .btn {
-    padding: 0.8rem 1.5rem;
-    font-weight: 500;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-#costModal .btn-primary {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    border: none;
-}
-
-#costModal .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    #costModal .current-cost h2 {
-        font-size: 2.5rem;
-    }
-    
-    #costModal .cost-details {
-        grid-template-columns: 1fr;
-    }
-    
-    #costModal .breakdown-list {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ...existing code... */
-
-/* Improved Folders Section Styles */
-#folders-section .card {
-    border: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-#folders-section .card-header {
-    border-bottom: none;
-}
-
-#folders-section .breadcrumb {
-    padding: 0;
-    margin: 0;
-}
-
-#folders-section .breadcrumb-item a {
-    color: #fff;
-    text-decoration: none;
-}
-
-#folders-section .breadcrumb-item a:hover {
-    color: #17a2b8;
-}
-
-#folders-section .breadcrumb-item.active {
-    color: #17a2b8;
-}
-
-#folders-section .table {
-    margin-bottom: 0;
-}
-
-#folders-section .table td {
-    vertical-align: middle;
-}
-
-.folder-icon, .file-icon {
-    font-size: 1.2rem;
-    width: 40px;
-    text-align: center;
-}
-
-.folder-icon {
-    color: #ffc107;
-}
-
-.file-icon {
-    color: #6c757d;
-}
-
-.folder-row {
-    cursor: pointer;
-}
-
-.folder-row:hover {
-    background-color: #f8f9fa;
-}
-
-.file-actions {
-    white-space: nowrap;
-}
-
-.file-size {
-    white-space: nowrap;
-    color: #6c757d;
-}
-
-.last-modified {
-    white-space: nowrap;
-    color: #6c757d;
-}
-
-/* Breadcrumb styles */
-#folder-breadcrumb {
-    background: transparent !important;
-    margin: 0;
-    padding: 0;
-}
-
-#folder-breadcrumb .breadcrumb-item {
-    color: #fff;
-}
-
-#folder-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-    color: rgba(255, 255, 255, 0.6);
-    content: "›";
-    font-size: 1.2em;
-    line-height: 1;
-    padding: 0 0.5rem;
-}
-
-#folder-breadcrumb .breadcrumb-item a {
-    color: #fff;
-    text-decoration: none;
-}
-
-#folder-breadcrumb .breadcrumb-item a:hover {
-    color: #17a2b8;
-}
-
-#folder-breadcrumb .breadcrumb-item.active {
-    color: #17a2b8;
-}
-
-/* Updated Folders Section Styles */
-#folders-section {
-    transition: opacity 0.3s ease-in-out;
-}
-
-#folders-section.d-none {
-    display: none !important;
-}
-
-#folders-section .table {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-#folders-section .table thead th {
-    background-color: #343a40;
-    color: #ffffff;
-    border-bottom: none;
-    padding: 15px;
-}
-
-#folders-section .table tbody td {
-    padding: 12px 15px;
-    vertical-align: middle;
-    border-top: 1px solid #dee2e6;
-}
-
-.folder-row:hover {
-    background-color: #f8f9fa;
-    cursor: pointer;
-}
-
-.back-link {
-    color: #495057;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    padding: 8px;
-}
-
-.back-link i {
-    margin-right: 5px;
-}
-
-.back-link:hover {
-    color: #007bff;
-    text-decoration: none;
-}
-
-/* Fix modal display issues */
-.modal-open {
-    overflow: auto !important;
-    padding-right: 0 !important;
-}
-
-.modal-backdrop {
-    z-index: 1040 !important;
-}
-
-.modal {
-    z-index: 1060 !important;
-}
-
-.modal:not(.show) {
-    display: none !important;
-    visibility: hidden;
-}
-
-.modal.show {
-    display: block !important;
-    visibility: visible;
-}
-
-/* Active nav item styling */
-.nav-item.active .nav-link {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-}
-
-/* Fix fullscreen navigation */
-@media (min-width: 992px) {
-    .navbar-expand-lg .navbar-nav {
-        flex-wrap: nowrap;
-    }
-    
-    .navbar-expand-lg .navbar-nav .nav-link {
-        padding-right: 1rem;
-        padding-left: 1rem;
-    }
-}
-
-/* Modal accessibility improvements */
-.modal {
-    overflow-y: auto !important;
-}
-
-.modal-open {
-    overflow: auto !important;
-    padding-right: 0 !important;
-}
-
-.modal:not(.show) {
-    pointer-events: none;
-}
-
-.modal.show {
-    pointer-events: auto;
-}
-
-.modal-backdrop {
-    opacity: 0.5;
-}
-
-/* Improve focus visibility */
-.modal .close:focus {
-    outline: 2px solid #007bff;
-    outline-offset: 2px;
-}
-
-/* New CSS for upload area */
-.upload-area {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.drop-zone {
-    width: 100%;
-    min-height: 200px;
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    cursor: pointer;
-    border: 2px dashed #0087F7;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    margin-bottom: 20px;
-}
-
-.drop-zone--over {
-    border-style: solid;
-    background-color: rgba(0, 135, 247, 0.1);
-    border-color: #0087F7;
-}
-
-.drop-zone__prompt {
-    pointer-events: none;
-    color: #666;
-}
-
-.drop-zone__input {
-    display: none;
-}
-
-/* Improved Upload List Styles */
-.upload-list {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 15px;
-    margin-top: 20px;
-}
-
-.upload-list .list-group-item {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    margin-bottom: 8px;
-    padding: 12px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #ffffff;
-}
-
-.upload-list .list-group-item:last-child {
-    margin-bottom: 0;
-}
-
-.upload-list .fa-file,
-.upload-list .fa-folder {
-    margin-right: 10px;
-    color: #00c6ff;
-}
-
-/* Improved Remove Button */
-.remove-file {
-    background: rgba(220, 53, 69, 0.2) !important;
-    border: 1px solid rgba(220, 53, 69, 0.3) !important;
-    color: #ff6b6b !important;
-    padding: 5px 10px !important;
-    border-radius: 5px !important;
-    transition: all 0.3s ease !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 32px !important;
-    height: 32px !important;
-}
-
-.remove-file:hover {
-    background: rgba(220, 53, 69, 0.4) !important;
-    color: #ffffff !important;
-    transform: scale(1.05);
-}
-
-.remove-file i {
-    font-size: 16px;
-}
-
-/* Better File List Spacing */
-.list-group-item > div {
-    display: flex;
-    align-items: center;
-    max-width: 80%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-/* Updated Upload List Styles */
-.upload-list {
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 15px;
-    margin-top: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.upload-list h6 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.upload-list .list-group-item {
-    background: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    padding: 12px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #333333;
-}
-
-.upload-list .list-group-item span {
-    display: flex;
-    align-items: center;
-    color: #333333;
-    font-size: 0.9rem;
-    max-width: 80%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.upload-list .list-group-item:last-child {
-    margin-bottom: 0;
-}
-
-.upload-list .fa-file,
-.upload-list .fa-folder {
-    margin-right: 10px;
-    color: #3498db;
-}
-
-.upload-list .fa-folder {
-    color: #f39c12;
-}
-
-.upload-list .remove-file {
-    background: rgba(220, 53, 69, 0.1);
-    border: 1px solid rgba(220, 53, 69, 0.2);
-    color: #dc3545;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-}
-
-.upload-list .remove-file:hover {
-    background: rgba(220, 53, 69, 0.2);
-    color: #dc3545;
-    transform: scale(1.05);
-}
-
-.upload-list .remove-file i {
-    font-size: 16px;
-}
-
-/* ...existing code... */
-
-.upload-list {
-    margin-top: 20px;
-    padding: 15px;
-    border: 1px solid #dee2e6;
-    border-radius: 5px;
-    background-color: #fff;
-}
-
-.upload-list .list-group-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-}
-
-.upload-list .list-group-item i {
-    margin-right: 10px;
-}
-
-.upload-list .remove-file {
-    cursor: pointer;
-    color: #dc3545;
-}
-
-.upload-list .remove-file:hover {
-    color: #bd2130;
-}
-
-
-/* History Modal Specific Styles */
-#clearHistoryModal .modal-content {
-    background: linear-gradient(135deg, #2c3e50, #c0392b);
-}
-
-/* Spinner Customization */
-.spinner-border {
-    color: #00c6ff;
-}
-
-/* Scrollbar Customization */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    border-radius: 4px;
-}
-
-/* Toast Customization */
-.toast {
-    background: rgba(22, 33, 62, 0.95);
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.toast-header {
-    background: transparent;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-}
-
-
-
-/* Fix for modal z-index */
-.modal {
-    z-index: 1060 !important;
-}
-
-.modal-backdrop {
-    z-index: 1050 !important;
-}
-
-/* Ensure button text color contrasts with button background */
-.btn-warning {
-    color: #f5f3f3; /* Black text for better contrast */
-}
-
-/* ...existing code... */
-
-.drop-zone {
-    width: 100%;
-    min-height: 200px;
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    cursor: pointer;
-    border: 2px dashed #0087F7;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    margin-bottom: 20px;
-}
-
-.drop-zone--over {
-    border-style: solid;
-    background-color: rgba(0, 135, 247, 0.1);
-    border-color: #0087F7;
-}
-
-.drop-zone__prompt {
-    pointer-events: none;
-    color: #666;
-}
-
-.drop-zone__input {
-    display: none;
-}
-
-/* ...existing code... */
-
-/* Update folder content styles */
-#s3-contents a {
-    color: #333333 !important; /* Dark gray for better readability */
-    text-decoration: none;
-}
-
-#s3-contents a:hover {
-    color: #007bff !important; /* Bootstrap primary color on hover */
-    text-decoration: underline;
-}
-
-.folder-row td {
-    color: #333333; /* Dark gray for better readability */
-}
-
-.folder-row:hover td {
-    background-color: rgba(0, 123, 255, 0.1); /* Light blue background on hover */
-}
-
-.file-size, .file-actions {
-    color: #495057 !important; /* Darker gray for better contrast */
-}
-
-/* ...existing code... */
-
-/* Forgot Password Link */
-#forgot-password-link {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-
-#forgot-password-link:hover {
-    text-decoration: underline;
-}
-
-/* Forgot Password Modal */
-#forgotPasswordModal .modal-content {
-    border-radius: 10px;
-}
-
-#forgotPasswordModal .modal-header {
-    background: linear-gradient(135deg, #2c3e50, #3498db);
-    color: white;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-#forgotPasswordModal .modal-body {
-    padding: 20px;
-}
-#forgotPasswordModal .modal-title{
-    background: none;
-}
-#forgotPasswordModal .close {
-    color: white;
-}
-
-#forgotPasswordModal .text-muted {
-    color: #ffffff !important;
-}
-
-/* Alert Messages in Modal */
-#forgotPasswordModal .alert {
-    margin-bottom: 15px;
-    border-radius: 5px;
-}
-
-/* ...existing code... */
-
-/* Clear History Modal Styles */
-#clearHistoryModal .modal-content {
-    border: none;
-   
-    
 }
 
 #clearHistoryModal .modal-header {
@@ -2715,9 +1705,13 @@ body, .navbar, .modal-title {
 }
 
 #display-name {
-    color: #ffffff !important;
+    color: #df1616 !important;
     font-weight: 500;
     font-size: 1rem;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
 }
 
 .nav-item.dropdown .dropdown-toggle:hover {
@@ -2751,7 +1745,7 @@ body, .navbar, .modal-title {
     font-size: 1.2rem;
     font-weight: bold;
     line-height: 1.2;
-    color: #146eb4;
+    color: #ffc107;
 }
 
 .navbar-subtitle {
@@ -4099,6 +3093,297 @@ body, .navbar, .modal-title {
 
 #changePasswordModal .password-requirements li.invalid {
     color: rgba(255, 255, 255, 0.5);
+}
+
+/* ...existing code... */
+
+/* Welcome Section Styles */
+.welcome-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.welcome-section:hover {
+    transform: translateY(-5px);
+}
+
+.welcome-title {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.welcome-text {
+    color: #505d6b;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    color: #34495e;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: rgba(52, 152, 219, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.feature-list li:hover {
+    background: rgba(52, 152, 219, 0.1);
+    transform: translateX(5px);
+}
+
+.feature-list li i {
+    color: #3498db;
+    margin-right: 15px;
+    font-size: 1.2rem;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(52, 152, 219, 0.1);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.welcome-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.welcome-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.welcome-image img:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .welcome-section {
+        padding: 30px;
+    }
+
+    .welcome-title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .welcome-text {
+        text-align: center;
+    }
+
+    .feature-list {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .welcome-image {
+        margin-top: 30px;
+    }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* Cost Section Styles */
+#cost-section {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cost-table-title {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.cost-info {
+    padding: 2rem;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #ffffff;
+}
+
+.current-cost h2 {
+    font-size: 3.5rem;
+    color: #00ff88;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.cost-date {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+}
+
+.cost-details {
+    margin-top: 2rem;
+}
+
+.cost-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.cost-card:hover {
+    transform: translateY(-5px);
+}
+
+.cost-card h5 {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cost-card h5 i {
+    margin-right: 8px;
+    color: #00ff88;
+}
+
+.cost-card .h3 {
+    color: #00ff88;
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Responsive adjustments for cost section */
+@media (max-width: 768px) {
+    #cost-section {
+        padding: 20px;
+    }
+
+    .cost-table-title {
+        font-size: 1.8rem;
+    }
+
+    .current-cost h2 {
+        font-size: 2.5rem;
+    }
+
+    .cost-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* Cost Section Specific Styles */
+#cost-section {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#cost-section .card {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#cost-section .card-body {
+    padding: 2rem;
+}
+
+#cost-section .cost-info {
+    color: #ffffff;
+}
+
+#cost-section .current-cost {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#cost-section .current-cost h2 {
+    font-size: 3.5rem;
+    color: #00ff88;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+}
+
+#cost-section .cost-date {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+#cost-section .cost-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+#cost-section .cost-card:hover {
+    transform: translateY(-5px);
+}
+
+#cost-section .cost-card h5 {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cost-section .cost-card h5 i {
+    margin-right: 8px;
+    color: #00ff88;
+}
+
+#cost-section .cost-card .h3 {
+    color: #00ff88;
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+#cost-section .text-muted {
+    color: rgba(255, 255, 255, 0.7) !important;
 }
 
 /* ...existing code... */

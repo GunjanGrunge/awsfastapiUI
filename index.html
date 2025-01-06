@@ -255,7 +255,6 @@
                                     <th style="width: 50px"></th>
                                     <th>Name</th>
                                     <th style="width: 120px">Size</th>
-                           
                                     <th style="width: 120px">Actions</th>
                                 </tr>
                             </thead>
@@ -263,6 +262,29 @@
                                 <!-- S3 contents will be displayed here -->
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Moved welcome section below the table -->
+            <div class="welcome-section mt-4">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="welcome-title mb-4">Manage Your Files</h2>
+                        <p class="welcome-text">
+                            Seamlessly organize and access your files and folders in AWS S3 storage. Enjoy secure, efficient data management with enterprise-grade security and user-friendly features.
+                        </p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Robust Security</li>
+                            <li><i class="fas fa-check-circle"></i> Intuitive Navigation</li>
+                            <li><i class="fas fa-check-circle"></i> Fast Transfers</li>
+                            <li><i class="fas fa-check-circle"></i> Streamlined Organization</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="welcome-image">
+                            <img src="src/4569774.jpg" alt="Folder Management Illustration" class="img-fluid">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -297,25 +319,88 @@
                     </button>
                 </div>
 
-                <!-- Removed history-content div -->
-                <!--
-                <div class="history-content mt-4">
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <div class="history-image text-center">
-                                <img src="src/4569774.jpg" alt="History Visualization" class="img-fluid rounded">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <h2 class="history-title">Activity History</h2>
-                            <p class="history-description">
-                                Track and monitor all your file operations with detailed history logs. 
-                                View upload timestamps, file sizes, and maintain complete visibility of your storage activities.
+                <!-- Added History Info Section -->
+                <div class="welcome-section mt-4">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <h2 class="welcome-title mb-4">Track Your Activities</h2>
+                            <p class="welcome-text">
+                                Stay on top of your file operations with a comprehensive activity tracking system. Monitor uploads, downloads, and management actions with precise timestamps and detailed insights.
                             </p>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> Comprehensive Logs</i>
+                                <li><i class="fas fa-check-circle"></i> Detailed File Information</li>
+                                <li><i class="fas fa-check-circle"></i> Accurate Timestamps</li>
+                                <li><i class="fas fa-check-circle"></i> Easy History Management</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="welcome-image">
+                                <img src="src/rb_5335.jpg" alt="History Tracking Illustration" class="img-fluid">
+                            </div>
                         </div>
                     </div>
                 </div>
-                -->
+            </div>
+        </div>
+
+        <!-- Replace the Cost Modal with this new section -->
+        <div class="container mt-4 d-none" id="cost-section">
+            <div class="cost-overview">
+                <!-- Cost Summary Cards -->
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white">
+                            <div class="card-body">
+                                <h5 class="card-title">Total Cost</h5>
+                                <h2 class="mb-0">$<span id="current-cost">0.00</span></h2>
+                                <small class="text-muted" id="cost-date">As of today</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white">
+                            <div class="card-body">
+                                <h5 class="card-title">Storage Cost</h5>
+                                <h2 class="mb-0">$<span id="storage-cost">0.00</span></h2>
+                                <small class="text-muted">Monthly estimate</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white">
+                            <div class="card-body">
+                                <h5 class="card-title">Transfer Cost</h5>
+                                <h2 class="mb-0">$<span id="transfer-cost">0.00</span></h2>
+                                <small class="text-muted">Monthly estimate</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cost Information Section -->
+                <div class="welcome-section mt-4">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <h2 class="welcome-title mb-4">Cost Management</h2>
+                            <p class="welcome-text">
+                                Monitor and optimize your AWS S3 storage costs with our comprehensive cost management dashboard. 
+                                Track storage usage and data transfer expenses in real-time.
+                            </p>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> Real-time cost tracking</li>
+                                <li><i class="fas fa-check-circle"></i> Storage usage analytics</li>
+                                <li><i class="fas fa-check-circle"></i> Transfer cost monitoring</li>
+                                <li><i class="fas fa-check-circle"></i> Cost optimization insights</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="welcome-image">
+                                <img src="src/10075627.jpg" alt="Cost Management Illustration" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -324,45 +409,6 @@
     <!-- Toast Container - Move this outside of main-ui -->
     <div aria-live="polite" aria-atomic="true" class="toast-container">
         <div id="toast-container"></div>
-    </div>
-
-    <!-- Cost Modal -->
-    <div class="modal fade" id="costModal" tabindex="-1" role="dialog" aria-labelledby="costModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="costModalLabel">
-                        <i class="fas fa-coins mr-2"></i>AWS Cost Overview
-                    </h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="cost-info">
-                        <div class="current-cost">
-                            <h2>$<span id="current-cost">0.00</span></h2>
-                            <small class="text-muted" id="cost-date">As of today</small>
-                        </div>
-                        <div class="cost-details mt-4">
-                            <div class="row">
-                                <div class="col-6">
-                                    <h5>Storage</h5>
-                                    <p>$<span id="storage-cost">0.00</span></p>
-                                </div>
-                                <div class="col-6">
-                                    <h5>Transfer</h5>
-                                    <p>$<span id="transfer-cost">0.00</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Update Profile Modal -->
