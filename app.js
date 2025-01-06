@@ -289,10 +289,11 @@ document.addEventListener('DOMContentLoaded', async function() {
         await fetchS3Contents('');
         await loadHistory();
         
-        // Show the home section by default
+        // Show the home section by default and hide others
         document.getElementById('home-section').classList.remove('d-none');
         document.getElementById('folders-section').classList.add('d-none');
         document.getElementById('history-section').classList.add('d-none');
+        document.getElementById('cost-section').classList.add('d-none');
     }
 
     // Function to show the login page
@@ -1010,8 +1011,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Hide all sections except upload section
         document.getElementById('folders-section').classList.add('d-none');
         document.getElementById('history-section').classList.add('d-none');
-       
-        // Show upload section
+        document.getElementById('cost-section').classList.add('d-none');
         document.querySelector('.upload-section').classList.remove('d-none');
        
         // Clear any active modals
@@ -1033,6 +1033,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Show folders section and hide others
         document.getElementById('folders-section').classList.remove('d-none');
         document.getElementById('history-section').classList.add('d-none');
+        document.getElementById('cost-section').classList.add('d-none');
         document.querySelector('.upload-section').classList.add('d-none');
        
         // Update navigation active state
@@ -1050,6 +1051,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Show history section and hide others
         document.getElementById('folders-section').classList.add('d-none');
         document.getElementById('history-section').classList.remove('d-none');
+        document.getElementById('cost-section').classList.add('d-none');
         document.querySelector('.upload-section').classList.add('d-none');
        
         // Update navigation active state
@@ -2248,10 +2250,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         document.getElementById('home-section').classList.add('d-none');
         document.getElementById('folders-section').classList.add('d-none');
         document.getElementById('history-section').classList.add('d-none');
-        
-        // Show cost section
-        const costSection = document.getElementById('cost-section');
-        costSection.classList.remove('d-none');
+        document.getElementById('cost-section').classList.remove('d-none');
         
         // Update navigation active state
         document.querySelectorAll('.nav-item').forEach(item => {
@@ -2428,10 +2427,11 @@ async function showMainUI(user) {
     await fetchS3Contents('');
     await loadHistory();
     
-    // Show the home section by default
+    // Show the home section by default and hide others
     document.getElementById('home-section').classList.remove('d-none');
     document.getElementById('folders-section').classList.add('d-none');
     document.getElementById('history-section').classList.add('d-none');
+    document.getElementById('cost-section').classList.add('d-none');
 }
 
 // Navigation handling
@@ -2468,10 +2468,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         document.getElementById('home-section').classList.add('d-none');
         document.getElementById('folders-section').classList.add('d-none');
         document.getElementById('history-section').classList.add('d-none');
-        
-        // Show cost section
-        const costSection = document.getElementById('cost-section');
-        costSection.classList.remove('d-none');
+        document.getElementById('cost-section').classList.remove('d-none');
         
         // Update navigation active state
         document.querySelectorAll('.nav-item').forEach(item => {
