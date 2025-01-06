@@ -1,0 +1,12 @@
+version: 1
+frontend:
+  phases:
+    build:
+      commands:
+        - sed -i "s/@@AWS_ACCESS_KEY_ID@@/$AWS_ACCESS_KEY_ID/g" config.js
+        - sed -i "s/@@AWS_SECRET_ACCESS_KEY@@/$AWS_SECRET_ACCESS_KEY/g" config.js
+        - sed -i "s/@@FIREBASE_API_KEY@@/$FIREBASE_API_KEY/g" config.js
+  artifacts:
+    baseDirectory: /
+    files:
+      - '**/*'
