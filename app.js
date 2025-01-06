@@ -85,6 +85,11 @@ function formatDateToCustomString(dateString) {
     const day = date.getDate();
     const month = date.toLocaleString('en-US', { month: 'short' });
     const year = date.getFullYear();
+    const time = date.toLocaleString('en-US', { 
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true 
+    });
    
     // Add ordinal suffix to day
     const ordinal = (day) => {
@@ -97,7 +102,7 @@ function formatDateToCustomString(dateString) {
         }
     };
 
-    return `${day}${ordinal(day)} ${month} ${year}`;
+    return `${day}${ordinal(day)} ${month} ${year}, ${time}`;
 }
 
 // Add updateHistoryUI function near the top with other global functions
@@ -119,6 +124,10 @@ function updateHistoryUI(historyData) {
                 ${item.action}
             </td>
             <td>
+                <i class="fas ${item.action === 'Upload' ? 'fa-folder' : 'fa-file'} mr-2"></i>
+                ${item.itemName || 'Unknown'}
+            </td>
+            <td>
                 <i class="fas fa-hdd mr-2"></i>
                 ${(item.size / (1024 * 1024)).toFixed(2)} MB
             </td>
@@ -133,7 +142,7 @@ function updateHistoryUI(historyData) {
     if (historyData.length === 0) {
         historyContents.innerHTML = `
             <tr>
-                <td colspan="4" class="text-center py-4">
+                <td colspan="5" class="text-center py-4">
                     <i class="fas fa-history fa-2x mb-2 text-muted"></i>
                     <p class="text-muted mb-0">No history available</p>
                 </td>
@@ -547,9 +556,15 @@ document.addEventListener('DOMContentLoaded', async function() {
     };
 
     // Function to update history
-    async function updateHistory(action, size, fileCount) {
-        const currentDate = new Date().toISOString(); // Store full ISO date string
-        history.push({ date: currentDate, action, size, fileCount });
+    async function updateHistory(action, size, fileCount, itemName) {
+        const currentDate = new Date().toISOString();
+        history.push({ 
+            date: currentDate, 
+            action, 
+            size, 
+            fileCount,
+            itemName // Add the item name to history
+        });
         updateHistoryUI(history);
 
         // Save history to S3
@@ -572,6 +587,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 <tr>
                     <td>${formatDateToCustomString(item.date)}</td>
                     <td>${item.action}</td>
+                    <td>${item.itemName || 'Unknown'}</td>
                     <td>${(item.size / (1024 * 1024)).toFixed(2)} MB</td>
                     <td>${item.fileCount}</td>
                 </tr>
@@ -655,6 +671,14 @@ document.addEventListener('DOMContentLoaded', async function() {
             uploadedBytes: 0
         };
 
+        // Get folder name from the first file's webkitRelativePath
+        let folderName = 'Unknown';
+        if (files[0] && files[0].webkitRelativePath) {
+            folderName = files[0].webkitRelativePath.split('/')[0];
+        } else if (files[0] && files[0].fullPath) {
+            folderName = files[0].fullPath.split('/')[0];
+        }
+
         // Calculate total size first
         for (const file of files) {
             uploadProgress.totalBytes += file.size;
@@ -694,6 +718,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                 uploadProgress.size += file.size;
             }
            
+            // Add folder name to history
+            await updateHistory('Upload', uploadProgress.size, uploadProgress.current, folderName);
+            showToast(`Successfully uploaded folder: ${folderName}`, 'success');
             return uploadProgress;
         } catch (error) {
             throw error;
@@ -763,7 +790,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             window.URL.revokeObjectURL(url);
             document.body.removeChild(a);
 
-            await updateHistory('Download', totalSize, 1);
+            // Update history with file name
+            await updateHistory('Download', totalSize, 1, fileName);
             showToast('Download completed successfully!', 'success');
         } catch (error) {
             console.error('Error downloading file:', error);
@@ -835,7 +863,9 @@ document.addEventListener('DOMContentLoaded', async function() {
             window.URL.revokeObjectURL(url);
             document.body.removeChild(a);
 
-            await updateHistory('Download', totalSize, data.Contents.length);
+            // Get folder name from prefix
+            const folderName = prefix.split('/').filter(Boolean).pop() || 'Root';
+            await updateHistory('Download', totalSize, data.Contents.length, folderName);
             showToast('Folder download completed successfully!', 'success');
         } catch (error) {
             console.error('Error downloading folder:', error);
@@ -1287,6 +1317,13 @@ document.addEventListener('DOMContentLoaded', async function() {
            
             let totalSize = 0;
             let uploadedFiles = 0;
+            let folderName = '';
+
+            // Get folder name from the first file
+            const firstFile = selectedFiles.values().next().value;
+            if (firstFile.webkitRelativePath) {
+                folderName = firstFile.webkitRelativePath.split('/')[0];
+            }
            
             for (const file of selectedFiles) {
                 const key = currentPrefix + file.fullPath;
@@ -1308,8 +1345,8 @@ document.addEventListener('DOMContentLoaded', async function() {
                 uploadedFiles++;
             }
 
-            await updateHistory('Upload', totalSize, uploadedFiles);
-            showToast('Upload completed successfully!', 'success');
+            await updateHistory('Upload', totalSize, uploadedFiles, folderName);
+            showToast(`Successfully uploaded folder: ${folderName}`, 'success');
            
             // Clear selection
             selectedFiles.clear();
@@ -1375,6 +1412,14 @@ document.addEventListener('DOMContentLoaded', async function() {
             uploadedBytes: 0
         };
 
+        // Get folder name from the first file's webkitRelativePath
+        let folderName = 'Unknown';
+        if (files[0] && files[0].webkitRelativePath) {
+            folderName = files[0].webkitRelativePath.split('/')[0];
+        } else if (files[0] && files[0].fullPath) {
+            folderName = files[0].fullPath.split('/')[0];
+        }
+
         // Calculate total size first
         for (const file of files) {
             uploadProgress.totalBytes += file.size;
@@ -1406,6 +1451,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                 uploadProgress.size += file.size;
             }
            
+            // Add folder name to history
+            await updateHistory('Upload', uploadProgress.size, uploadProgress.current, folderName);
+            showToast(`Successfully uploaded folder: ${folderName}`, 'success');
             return uploadProgress;
         } catch (error) {
             throw error;
@@ -2392,4 +2440,3 @@ document.getElementById('history-link').addEventListener('click', function(e) {
     document.getElementById('folders-section').classList.add('d-none');
     document.getElementById('history-section').classList.remove('d-none');
 });
-
