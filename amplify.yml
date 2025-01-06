@@ -3,9 +3,16 @@ frontend:
   phases:
     build:
       commands:
-        - sed -i "s/@@AWS_ACCESS_KEY_ID@@/$AWS_ACCESS_KEY_ID/g" config.js
-        - sed -i "s/@@AWS_SECRET_ACCESS_KEY@@/$AWS_SECRET_ACCESS_KEY/g" config.js
+        - sed -i "s/@@REGION@@/$REGION/g" config.js
+        - sed -i "s/@@ACCESS_KEY_ID@@/$ACCESS_KEY_ID/g" config.js
+        - sed -i "s/@@SECRET_ACCESS_KEY@@/$SECRET_KEY/g" config.js
+        - sed -i "s/@@BUCKET_NAME@@/$BUCKET_NAME/g" config.js
         - sed -i "s/@@FIREBASE_API_KEY@@/$FIREBASE_API_KEY/g" config.js
+        - sed -i "s/@@FIREBASE_AUTH_DOMAIN@@/$FIREBASE_AUTH_DOMAIN/g" config.js
+        - sed -i "s/@@FIREBASE_PROJECT_ID@@/$FIREBASE_PROJECT_ID/g" config.js
+        - sed -i "s/@@FIREBASE_STORAGE_BUCKET@@/$FIREBASE_STORAGE_BUCKET/g" config.js
+        - sed -i "s/@@FIREBASE_MESSAGING_SENDER_ID@@/$FIREBASE_MESSAGING_SENDER_ID/g" config.js
+        - sed -i "s/@@FIREBASE_APP_ID@@/$FIREBASE_APP_ID/g" config.js
   artifacts:
     baseDirectory: /
     files:

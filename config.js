@@ -1,15 +1,15 @@
 const config = {
-    AWS_REGION: 'ap-south-1',
-    AWS_ACCESS_KEY_ID: '@@AWS_ACCESS_KEY_ID@@', // Will be replaced during deployment
-    AWS_SECRET_ACCESS_KEY: '@@AWS_SECRET_ACCESS_KEY@@', // Will be replaced during deployment
-    AWS_BUCKET_NAME: 'awsmusicbackupbucket',
+    AWS_REGION: '@@REGION@@',
+    AWS_ACCESS_KEY_ID: '@@ACCESS_KEY_ID@@',
+    AWS_SECRET_ACCESS_KEY: '@@SECRET_ACCESS_KEY@@',
+    AWS_BUCKET_NAME: '@@BUCKET_NAME@@',
     FIREBASE_CONFIG: {
-        apiKey: '@@FIREBASE_API_KEY@@', // Will be replaced during deployment
-        authDomain: 'backupapp-bbf71.firebaseapp.com',
-        projectId: 'backupapp-bbf71',
-        storageBucket: 'backupapp-bbf71.firebasestorage.app',
-        messagingSenderId: '346645540196',
-        appId: '1:346645540196:web:683bf8c0ca942c2e295e71'
+        apiKey: '@@FIREBASE_API_KEY@@',
+        authDomain: '@@FIREBASE_AUTH_DOMAIN@@',
+        projectId: '@@FIREBASE_PROJECT_ID@@',
+        storageBucket: '@@FIREBASE_STORAGE_BUCKET@@',
+        messagingSenderId: '@@FIREBASE_MESSAGING_SENDER_ID@@',
+        appId: '@@FIREBASE_APP_ID@@'
     }
 };
 
