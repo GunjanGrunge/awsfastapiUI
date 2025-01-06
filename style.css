@@ -1452,3 +1452,910 @@ body, .navbar, .modal-title {
 }
 
 /* ...existing code... */
+
+/* History Section Layout */
+.history-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.history-image {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.history-illustration {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.history-content {
+    padding: 30px;
+    background: #ffffff;
+}
+
+.history-content h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.history-content .table {
+    margin-bottom: 0;
+    background: transparent;
+}
+
+.history-content .table thead th {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    border-bottom: 2px solid #dee2e6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .history-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .history-image {
+        padding: 20px;
+        max-height: 300px;
+        overflow: hidden;
+    }
+    
+    .history-illustration {
+        max-height: 260px;
+        object-fit: cover;
+    }
+}
+
+/* ...existing code... */
+
+/* History Section Layout */
+.history-container {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+    padding: 20px 0;
+}
+
+.history-image {
+    flex: 0 0 200px;
+    position: sticky;
+    top: 100px;
+}
+
+.history-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.history-image img:hover {
+    opacity: 1;
+}
+
+.history-content {
+    flex: 1;
+    min-width: 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .history-image {
+        display: none;
+    }
+    
+    .history-content {
+        flex: 1;
+    }
+}
+
+/* ...existing code... */
+
+/* Welcome Section Styles */
+.welcome-section {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-title {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.welcome-text {
+    color: #505d6b;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    color: #34495e;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.feature-list li i {
+    color: #2ecc71;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.welcome-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.welcome-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.welcome-image img:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .welcome-section {
+        padding: 30px;
+    }
+
+    .welcome-title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .welcome-text {
+        text-align: center;
+    }
+
+    .feature-list {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .welcome-image {
+        margin-top: 30px;
+    }
+}
+
+/* ...existing code... */
+
+/* History Section Styles */
+.history-section {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.history-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.history-image img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.history-image img:hover {
+    transform: scale(1.05);
+}
+
+.history-description {
+    text-align: center;
+    color: #505d6b;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.history-content .table {
+    margin-top: 30px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.history-content .table thead th {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    padding: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .history-section {
+        padding: 20px;
+    }
+
+    .history-image {
+        padding: 15px;
+    }
+
+    .history-image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .history-description {
+        font-size: 1rem;
+    }
+}
+
+/* ...existing code... */
+
+/* History Section Styles */
+.history-section {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.history-content {
+    margin-bottom: 30px;
+}
+
+.history-title {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.history-footer {
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+    margin-top: 30px;
+}
+
+.history-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.history-image img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.history-image img:hover {
+    transform: translateY(-5px);
+}
+
+.history-description {
+    color: #505d6b;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .history-section {
+        padding: 20px;
+    }
+
+    .history-title {
+        font-size: 1.8rem;
+    }
+
+    .history-footer .row {
+        flex-direction: column-reverse;
+    }
+
+    .history-description {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .history-image {
+        margin-top: 20px;
+    }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.history-text {
+    color: #505d6b;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0 15px;
+    margin-bottom: 2rem;
+}
+
+.history-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Update responsive styles */
+@media (max-width: 992px) {
+    .history-text {
+        margin-bottom: 30px;
+        padding: 0 30px;
+    }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* History Section Styles */
+.history-section {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.history-content {
+    margin-bottom: 30px;
+}
+
+.history-title {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.history-footer {
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+    margin-top: 30px;
+}
+
+.history-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.history-image img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.history-image img:hover {
+    transform: translateY(-5px);
+}
+
+.history-description {
+    color: #505d6b;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .history-section {
+        padding: 20px;
+    }
+
+    .history-title {
+        font-size: 1.8rem;
+    }
+
+    .history-footer .row {
+        flex-direction: column-reverse;
+    }
+
+    .history-description {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .history-image {
+        margin-top: 20px;
+    }
+}
+
+.history-section {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.history-title {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.history-text {
+    color: #505d6b;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.history-features .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.history-features .feature-list li {
+    color: #34495e;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.history-features .feature-list li i {
+    color: #3498db;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.history-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.history-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.history-image img:hover {
+    transform: translateY(-5px);
+}
+
+.history-table-section {
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.history-table-section .card {
+    border: none;
+}
+
+.history-table-section .table {
+    margin-bottom: 1rem;
+}
+
+.history-table-section .table thead th {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .history-section {
+        padding: 30px;
+    }
+
+    .history-title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .history-text {
+        text-align: center;
+    }
+
+    .history-features .feature-list {
+        max-width: 400px;
+        margin: 0 auto 2rem auto;
+    }
+
+    .history-image {
+        margin-top: 10px;
+    }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* History Section Styles */
+.history-section {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.history-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+}
+
+.history-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 0;
+    transition: transform 0.3s ease;
+    box-shadow: none;
+    background: none;
+}
+
+.history-image img:hover {
+    transform: scale(1.05);
+}
+
+.history-title {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.history-description {
+    color: #505d6b;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+    margin: 1.5rem 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.history-table-section {
+    margin-top: 2rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+.history-table-section .table thead th {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .history-image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .history-title {
+        font-size: 1.8rem;
+    }
+
+    .history-description {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.history-section {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.history-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    
+    transition: transform 0.3s ease;
+}
+
+.history-table-section {
+    width: 100%;
+    margin-top: 2rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+/* ...existing code... */
+
+.history-section {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    /* ...existing styles... */
+}
+
+.history-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+    /* Add responsive behavior */
+}
+
+.history-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.history-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.history-text {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.history-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.history-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.history-table-section {
+    width: 100%;
+    margin-top: 20px;
+    /* ...existing styles... */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .history-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .history-text {
+        text-align: center;
+    }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.history-section {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    /* ...existing styles... */
+}
+
+.history-table-section {
+    width: 100%;
+    margin-bottom: 20px; /* Add spacing below the table */
+    /* ...existing styles... */
+}
+
+.history-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    /* Add responsive behavior */
+}
+
+.history-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.history-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.history-text {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.history-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.history-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .history-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .history-text {
+        text-align: center;
+    }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.history-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    /* ...existing styles... */
+}
+
+.history-table-section {
+    width: 100%;
+    margin-bottom: 20px; /* Add spacing below the table */
+    /* ...existing styles... */
+}
+
+.history-content {
+    /* Bootstrap handles the layout, additional styles if needed */
+    /* ...existing styles... */
+}
+
+.history-image img {
+    /* Additional styling if necessary */
+    /* For example, add a shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 768px) {
+    .history-title {
+        text-align: center;
+    }
+
+    .history-description {
+        text-align: center;
+    }
+}
+
+/* ...existing code... */
+
+.history-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent image overflow */
+    max-height: 300px; /* Adjust as needed */
+}
+
+.history-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensure the image scales appropriately */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center the image horizontally */
+    margin-bottom: 120px;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.history-table-title {
+    font-size: 2rem;
+    color: #343a40; /* Dark gray color for the title */
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .history-table-title {
+        text-align: center;
+    }
+}
+
+/* ...existing code... */
+

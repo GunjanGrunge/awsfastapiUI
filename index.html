@@ -186,6 +186,33 @@
             </div>
         </div>
 
+        <!-- Home Section -->
+        <div id="home-section" class="container mt-4">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="welcome-title mb-4">Welcome to AWS File Manager</h2>
+                        <p class="welcome-text">
+                            Securely manage your files and folders with our AWS S3-powered file management system. 
+                            Upload, organize, and access your data from anywhere with enterprise-grade security.
+                        </p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Secure file storage</li>
+                            <li><i class="fas fa-check-circle"></i> Easy folder organization</li>
+                            <li><i class="fas fa-check-circle"></i> Quick file access</li>
+                            <li><i class="fas fa-check-circle"></i> Cost-effective solution</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="welcome-image">
+                            <img src="src/7471053.jpg" alt="File Management Illustration" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Folders Section -->
         <div class="container mt-4 d-none" id="folders-section">
             <div class="card">
@@ -222,22 +249,54 @@
 
         <!-- History Section -->
         <div class="container mt-4 d-none" id="history-section">
-            <h2 class="audiowide-regular">History</h2>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Action</th>
-                        <th>Size</th>
-                        <th>Number of Files</th>
-                    </tr>
-                </thead>
-                <tbody id="history-contents">
-                    <!-- History contents will be displayed here -->
-                </tbody>
-            </table>
-            <button class="btn btn-danger" id="clear-history-button">Clear History</button>
+            <div class="history-section">
+                <!-- History Title -->
+                <h2 class="history-table-title mb-4">Your Activity History</h2>
+
+                <!-- History Table Section -->
+                <div class="history-table-section">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                    <th>Size</th>
+                                    <th>Number of Files</th>
+                                </tr>
+                            </thead>
+                            <tbody id="history-contents">
+                                <!-- History contents will be displayed here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="btn btn-danger mt-3" id="clear-history-button">
+                        <i class="fas fa-trash-alt mr-2"></i>Clear History
+                    </button>
+                </div>
+
+                <!-- Removed history-content div -->
+                <!--
+                <div class="history-content mt-4">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="history-image text-center">
+                                <img src="src/4569774.jpg" alt="History Visualization" class="img-fluid rounded">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h2 class="history-title">Activity History</h2>
+                            <p class="history-description">
+                                Track and monitor all your file operations with detailed history logs. 
+                                View upload timestamps, file sizes, and maintain complete visibility of your storage activities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
         </div>
+
     </div>
 
     <!-- Toast Container - Move this outside of main-ui -->

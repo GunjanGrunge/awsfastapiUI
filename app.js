@@ -2320,3 +2320,25 @@ async function showMainUI(user) {
     document.getElementById('folders-section').classList.remove('d-none');
     document.getElementById('history-section').classList.add('d-none');
 }
+
+// Navigation handling
+document.getElementById('home-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('home-section').classList.remove('d-none');
+    document.getElementById('folders-section').classList.add('d-none');
+    document.getElementById('history-section').classList.add('d-none');
+});
+
+document.getElementById('folders-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('home-section').classList.add('d-none');
+    document.getElementById('folders-section').classList.remove('d-none');
+    document.getElementById('history-section').classList.add('d-none');
+});
+
+document.getElementById('history-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('home-section').classList.add('d-none');
+    document.getElementById('folders-section').classList.add('d-none');
+    document.getElementById('history-section').classList.remove('d-none');
+});
