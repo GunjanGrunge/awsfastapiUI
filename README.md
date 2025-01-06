@@ -6,10 +6,30 @@ A modern web application for managing files in AWS S3 with Firebase authenticati
 
 ## Features
 
-- 🔐 **Secure Authentication** - Firebase-based user authentication
-- 📁 **File Management** - Upload, download, and organize files and folders
-- 📊 **Cost Tracking** - Monitor your AWS S3 storage and transfer costs
-- 📜 **Activity History** - Track all file operations with detailed logs
+- 🔐 **Secure Authentication**
+  - Firebase-based user authentication
+  - Password reset functionality
+  - Profile management
+  - Session persistence
+
+- 📁 **File Management**
+  - Drag & drop folder upload
+  - Recursive folder download
+  - Intuitive folder navigation
+  - Progress tracking
+
+- 📊 **Cost Analysis**
+  - Real-time cost tracking
+  - Storage usage analytics
+  - Transfer cost monitoring 
+  - Monthly cost projections
+
+- 📜 **Activity History**
+  - Detailed operation logs
+  - File tracking
+  - Clear activity history
+  - Download statistics
+
 - 💫 **Modern UI** - Intuitive interface with drag-and-drop support
 - 📱 **Responsive Design** - Works seamlessly on desktop and mobile devices
 
@@ -21,6 +41,9 @@ A modern web application for managing files in AWS S3 with Firebase authenticati
 - Font Awesome Icons
 - JSZip for folder downloads
 
-## Setup
-
-1. Clone the repository:
+Tech Stack
+AWS SDK for JavaScript
+Firebase Authentication
+Bootstrap 4.5
+Font Awesome Icons
+JSZip
