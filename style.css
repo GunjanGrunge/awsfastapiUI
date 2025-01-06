@@ -1581,6 +1581,1122 @@ body, .navbar, .modal-title {
 
 /* ...existing code... */
 
+/* Enhanced Cost Modal Styles */
+#costModal .modal-content {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#costModal .modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#costModal .modal-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+}
+
+#costModal .modal-title i {
+    color: #00c6ff;
+    font-size: 1.8rem;
+}
+
+#costModal .modal-body {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+#costModal .cost-info {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+#costModal .cost-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0, 198, 255, 0.1), rgba(0, 114, 255, 0.1));
+    z-index: 0;
+}
+
+#costModal .current-cost {
+    position: relative;
+    z-index: 1;
+}
+
+#costModal .current-cost h2 {
+    font-size: 3.5rem;
+    margin: 0;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: 'Poppins', sans-serif;
+}
+
+#costModal .current-cost small {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+#costModal .cost-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+#costModal .cost-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+#costModal .cost-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#costModal .cost-card h5 {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+#costModal .cost-card p {
+    color: #00c6ff;
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+#costModal .cost-date {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+#costModal .cost-chart {
+    margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+/* Cost Breakdown Section */
+#costModal .cost-breakdown {
+    margin-top: 2rem;
+}
+
+#costModal .breakdown-title {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+#costModal .breakdown-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+#costModal .breakdown-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+#costModal .breakdown-item i {
+    color: #00c6ff;
+    font-size: 1.2rem;
+}
+
+#costModal .breakdown-item span {
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+#costModal .breakdown-item strong {
+    color: #00c6ff;
+    margin-left: auto;
+}
+
+/* Modal Footer */
+#costModal .modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+#costModal .btn {
+    padding: 0.8rem 1.5rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#costModal .btn-primary {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border: none;
+}
+
+#costModal .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #costModal .current-cost h2 {
+        font-size: 2.5rem;
+    }
+    
+    #costModal .cost-details {
+        grid-template-columns: 1fr;
+    }
+    
+    #costModal .breakdown-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ...existing code... */
+
+/* Improved Folders Section Styles */
+#folders-section .card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#folders-section .card-header {
+    border-bottom: none;
+}
+
+#folders-section .breadcrumb {
+    padding: 0;
+    margin: 0;
+}
+
+#folders-section .breadcrumb-item a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#folders-section .breadcrumb-item a:hover {
+    color: #17a2b8;
+}
+
+#folders-section .breadcrumb-item.active {
+    color: #17a2b8;
+}
+
+#folders-section .table {
+    margin-bottom: 0;
+}
+
+#folders-section .table td {
+    vertical-align: middle;
+}
+
+.folder-icon, .file-icon {
+    font-size: 1.2rem;
+    width: 40px;
+    text-align: center;
+}
+
+.folder-icon {
+    color: #ffc107;
+}
+
+.file-icon {
+    color: #6c757d;
+}
+
+.folder-row {
+    cursor: pointer;
+}
+
+.folder-row:hover {
+    background-color: #f8f9fa;
+}
+
+.file-actions {
+    white-space: nowrap;
+}
+
+.file-size {
+    white-space: nowrap;
+    color: #6c757d;
+}
+
+.last-modified {
+    white-space: nowrap;
+    color: #6c757d;
+}
+
+/* Breadcrumb styles */
+#folder-breadcrumb {
+    background: transparent !important;
+    margin: 0;
+    padding: 0;
+}
+
+#folder-breadcrumb .breadcrumb-item {
+    color: #fff;
+}
+
+#folder-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, 0.6);
+    content: "›";
+    font-size: 1.2em;
+    line-height: 1;
+    padding: 0 0.5rem;
+}
+
+#folder-breadcrumb .breadcrumb-item a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#folder-breadcrumb .breadcrumb-item a:hover {
+    color: #17a2b8;
+}
+
+#folder-breadcrumb .breadcrumb-item.active {
+    color: #17a2b8;
+}
+
+/* Updated Folders Section Styles */
+#folders-section {
+    transition: opacity 0.3s ease-in-out;
+}
+
+#folders-section.d-none {
+    display: none !important;
+}
+
+#folders-section .table {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#folders-section .table thead th {
+    background-color: #343a40;
+    color: #ffffff;
+    border-bottom: none;
+    padding: 15px;
+}
+
+#folders-section .table tbody td {
+    padding: 12px 15px;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+}
+
+.folder-row:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+.back-link {
+    color: #495057;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px;
+}
+
+.back-link i {
+    margin-right: 5px;
+}
+
+.back-link:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Fix modal display issues */
+.modal-open {
+    overflow: auto !important;
+    padding-right: 0 !important;
+}
+
+.modal-backdrop {
+    z-index: 1040 !important;
+}
+
+.modal {
+    z-index: 1060 !important;
+}
+
+.modal:not(.show) {
+    display: none !important;
+    visibility: hidden;
+}
+
+.modal.show {
+    display: block !important;
+    visibility: visible;
+}
+
+/* Active nav item styling */
+.nav-item.active .nav-link {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+/* Fix fullscreen navigation */
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav {
+        flex-wrap: nowrap;
+    }
+    
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+
+/* Modal accessibility improvements */
+.modal {
+    overflow-y: auto !important;
+}
+
+.modal-open {
+    overflow: auto !important;
+    padding-right: 0 !important;
+}
+
+.modal:not(.show) {
+    pointer-events: none;
+}
+
+.modal.show {
+    pointer-events: auto;
+}
+
+.modal-backdrop {
+    opacity: 0.5;
+}
+
+/* Improve focus visibility */
+.modal .close:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* New CSS for upload area */
+.upload-area {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.drop-zone {
+    width: 100%;
+    min-height: 200px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    border: 2px dashed #0087F7;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.drop-zone--over {
+    border-style: solid;
+    background-color: rgba(0, 135, 247, 0.1);
+    border-color: #0087F7;
+}
+
+.drop-zone__prompt {
+    pointer-events: none;
+    color: #666;
+}
+
+.drop-zone__input {
+    display: none;
+}
+
+/* Improved Upload List Styles */
+.upload-list {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.upload-list .list-group-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+}
+
+.upload-list .list-group-item:last-child {
+    margin-bottom: 0;
+}
+
+.upload-list .fa-file,
+.upload-list .fa-folder {
+    margin-right: 10px;
+    color: #00c6ff;
+}
+
+/* Improved Remove Button */
+.remove-file {
+    background: rgba(220, 53, 69, 0.2) !important;
+    border: 1px solid rgba(220, 53, 69, 0.3) !important;
+    color: #ff6b6b !important;
+    padding: 5px 10px !important;
+    border-radius: 5px !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.remove-file:hover {
+    background: rgba(220, 53, 69, 0.4) !important;
+    color: #ffffff !important;
+    transform: scale(1.05);
+}
+
+.remove-file i {
+    font-size: 16px;
+}
+
+/* Better File List Spacing */
+.list-group-item > div {
+    display: flex;
+    align-items: center;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Updated Upload List Styles */
+.upload-list {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.upload-list h6 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.upload-list .list-group-item {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333333;
+}
+
+.upload-list .list-group-item span {
+    display: flex;
+    align-items: center;
+    color: #333333;
+    font-size: 0.9rem;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.upload-list .list-group-item:last-child {
+    margin-bottom: 0;
+}
+
+.upload-list .fa-file,
+.upload-list .fa-folder {
+    margin-right: 10px;
+    color: #3498db;
+}
+
+.upload-list .fa-folder {
+    color: #f39c12;
+}
+
+.upload-list .remove-file {
+    background: rgba(220, 53, 69, 0.1);
+    border: 1px solid rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.upload-list .remove-file:hover {
+    background: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+    transform: scale(1.05);
+}
+
+.upload-list .remove-file i {
+    font-size: 16px;
+}
+
+/* ...existing code... */
+
+.upload-list {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.upload-list .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.upload-list .list-group-item i {
+    margin-right: 10px;
+}
+
+.upload-list .remove-file {
+    cursor: pointer;
+    color: #dc3545;
+}
+
+.upload-list .remove-file:hover {
+    color: #bd2130;
+}
+
+
+/* History Modal Specific Styles */
+#clearHistoryModal .modal-content {
+    background: linear-gradient(135deg, #2c3e50, #c0392b);
+}
+
+/* Spinner Customization */
+.spinner-border {
+    color: #00c6ff;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border-radius: 4px;
+}
+
+/* Toast Customization */
+.toast {
+    background: rgba(22, 33, 62, 0.95);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.toast-header {
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+
+
+/* Fix for modal z-index */
+.modal {
+    z-index: 1060 !important;
+}
+
+.modal-backdrop {
+    z-index: 1050 !important;
+}
+
+/* Ensure button text color contrasts with button background */
+.btn-warning {
+    color: #f5f3f3; /* Black text for better contrast */
+}
+
+/* ...existing code... */
+
+.drop-zone {
+    width: 100%;
+    min-height: 200px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    border: 2px dashed #0087F7;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.drop-zone--over {
+    border-style: solid;
+    background-color: rgba(0, 135, 247, 0.1);
+    border-color: #0087F7;
+}
+
+.drop-zone__prompt {
+    pointer-events: none;
+    color: #666;
+}
+
+.drop-zone__input {
+    display: none;
+}
+
+/* ...existing code... */
+
+/* Update folder content styles */
+#s3-contents a {
+    color: #333333 !important; /* Dark gray for better readability */
+    text-decoration: none;
+}
+
+#s3-contents a:hover {
+    color: #007bff !important; /* Bootstrap primary color on hover */
+    text-decoration: underline;
+}
+
+.folder-row td {
+    color: #333333; /* Dark gray for better readability */
+}
+
+.folder-row:hover td {
+    background-color: rgba(0, 123, 255, 0.1); /* Light blue background on hover */
+}
+
+.file-size, .file-actions {
+    color: #495057 !important; /* Darker gray for better contrast */
+}
+
+/* ...existing code... */
+
+/* Forgot Password Link */
+#forgot-password-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+#forgot-password-link:hover {
+    text-decoration: underline;
+}
+
+/* Forgot Password Modal */
+#forgotPasswordModal .modal-content {
+    border-radius: 10px;
+}
+
+#forgotPasswordModal .modal-header {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#forgotPasswordModal .modal-body {
+    padding: 20px;
+}
+#forgotPasswordModal .modal-title{
+    background: none;
+}
+#forgotPasswordModal .close {
+    color: white;
+}
+
+#forgotPasswordModal .text-muted {
+    color: #ffffff !important;
+}
+
+/* Alert Messages in Modal */
+#forgotPasswordModal .alert {
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+/* ...existing code... */
+
+/* Clear History Modal Styles */
+#clearHistoryModal .modal-content {
+    border: none;
+   
+    
+}
+
+#clearHistoryModal .modal-header {
+    border-bottom: none;
+    padding: 1.5rem;
+  
+}
+
+#clearHistoryModal .modal-title {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+#clearHistoryModal .modal-title i {
+    margin-right: 10px;
+    color: #ffc107;
+}
+
+#clearHistoryModal .modal-body {
+    color: #ffffff;
+    font-size: 1.1rem;
+    padding: 2rem;
+ 
+}
+
+#clearHistoryModal .modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+}
+
+#clearHistoryModal .close {
+    color: #ffffff;
+    text-shadow: none;
+    opacity: 0.8;
+}
+
+#clearHistoryModal .close:hover {
+    opacity: 1;
+}
+
+/* ...existing code... */
+
+/* Clear History Modal Styles - with higher specificity */
+#clearHistoryModal.modal .modal-content {
+    border: none !important;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2) !important;
+    background: #ffffff !important;
+}
+
+#clearHistoryModal.modal .modal-header {
+    background: #dc3545 !important;
+    border-bottom: none !important;
+    padding: 1.5rem !important;
+    border-top-left-radius: 0.3rem !important;
+    border-top-right-radius: 0.3rem !important;
+}
+
+#clearHistoryModal.modal .modal-header .modal-title {
+    color: #ffffff !important;
+    font-size: 1.2rem !important;
+    font-weight: 500 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+#clearHistoryModal.modal .modal-header .fa-exclamation-triangle {
+    color: #ffc107 !important;
+    margin-right: 10px !important;
+}
+
+#clearHistoryModal.modal .modal-header .close {
+    color: #ffffff !important;
+    text-shadow: none !important;
+    opacity: 0.8 !important;
+    padding: 1rem !important;
+    margin: -1rem !important;
+}
+
+#clearHistoryModal.modal .modal-header .close:hover {
+    opacity: 1 !important;
+}
+
+#clearHistoryModal.modal .modal-body {
+    color: hsl(210, 11%, 15%) !important;
+    background: #ffffff !important;
+    font-size: 1.1rem !important;
+    padding: 2rem !important;
+}
+
+#clearHistoryModal.modal .modal-footer {
+    background: #ffffff !important;
+    border-top: 1px solid #dee2e6 !important;
+    padding: 1rem !important;
+}
+
+/* ...existing code... */
+
+/* Clear History Modal Styles - with higher specificity and overrides */
+.modal#clearHistoryModal {
+    z-index: 1060 !important;
+}
+
+.modal#clearHistoryModal .modal-dialog {
+    margin-top: 10vh;
+}
+
+.modal#clearHistoryModal .modal-content {
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.modal#clearHistoryModal .modal-header {
+    background: #dc3545 !important;
+    border-bottom: none !important;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    padding: 1rem !important;
+}
+
+.modal#clearHistoryModal .modal-title {
+    color: #ffffff !important;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    display: flex !important;
+    background: #dc3545 !important;
+    align-items: center !important;
+}
+
+.modal#clearHistoryModal .modal-title .fa-exclamation-triangle {
+    color: #ffc107 !important;
+    margin-right: 10px !important;
+}
+
+.modal#clearHistoryModal .modal-body {
+    background: #ffffff !important;
+    color: #333333 !important;
+    padding: 1.5rem !important;
+}
+
+.modal#clearHistoryModal .modal-footer {
+    background: #ffffff !important;
+    border-top: 1px solid #dee2e6 !important;
+    padding: 1rem !important;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+}
+
+.modal#clearHistoryModal .close {
+    color: #ffffff !important;
+    opacity: 0.8 !important;
+    text-shadow: none !important;
+    margin: -0.5rem -0.5rem -0.5rem auto !important;
+}
+
+.modal#clearHistoryModal .close:hover {
+    opacity: 1 !important;
+}
+
+/* ...existing code... */
+
+/* Toast Container and Notifications */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1070;
+}
+
+.toast {
+    min-width: 250px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    margin-bottom: 0.75rem;
+}
+
+.toast .toast-header {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.toast .toast-body {
+    padding: 1rem;
+    color: #333333;
+    font-size: 0.95rem;
+}
+
+/* Toast Header Types */
+.toast .toast-header.bg-success {
+    background-color: #28a745 !important;
+    color: #ffffff;
+}
+
+.toast .toast-header.bg-danger {
+    background-color: #dc3545 !important;
+    color: #ffffff;
+}
+
+.toast .toast-header.bg-info {
+    background-color: #17a2b8 !important;
+    color: #ffffff;
+}
+
+.toast .toast-header.bg-warning {
+    background-color: #ffc107 !important;
+    color: #000000;
+}
+
+/* Toast Close Button */
+.toast .close {
+    color: inherit;
+    text-shadow: none;
+    opacity: 0.8;
+}
+
+.toast .close:hover {
+    opacity: 1;
+}
+
+/* Toast Message Types */
+.toast.bg-success .toast-body {
+    color: #155724;
+    background-color: #d4edda;
+}
+
+.toast.bg-danger .toast-body {
+    color: #721c24;
+    background-color: #f8d7da;
+}
+
+.toast.bg-info .toast-body {
+    color: #0c5460;
+    background-color: #d1ecf1;
+}
+
+.toast.bg-warning .toast-body {
+    color: #856404;
+    background-color: #fff3cd;
+}
+
+/* ...existing code... */
+
+/* Cost Modal Styles */
+
+#costModal .modal-content {
+    
+    color: #ffffff;
+}
+
+#costModal .modal-header {
+    background: none;
+    border-bottom: 1px solid #454d55;
+}
+
+#costModal .modal-title {
+    background: none;
+    color: white;
+    padding: 10px;
+    width: 100%;
+}
+#costModal .cost-info {
+    text-align: center;
+    padding: 2rem;
+}
+
+#costModal .current-cost h2 {
+    font-size: 3rem;
+    margin: 0;
+    color: #00ff88;
+    font-weight: 600;
+    margin-top: -10px;
+}
+
+#costModal .cost-details {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1rem; 
+}
+
+#costModal .cost-details h5 {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#small .cost-details p {
+    color: #00ff88;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+#costModal #cost-date {
+    color: #ffffff !important;
+    opacity: 1;
+}
+
+/* This overrides Bootstrap's text-muted class */
+#costModal .text-muted {
+    color: #ffffff !important;
+}
+
+/* ...existing code... */
+
 /* Update Profile Modal Title */
 #updateProfileModal .modal-title {
     color: #ffffff;
@@ -2665,6 +3781,324 @@ body, .navbar, .modal-title {
 #main-ui.d-none {
     display: none !important;
     opacity: 0;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* Update Profile Modal Styles */
+#updateProfileModal .modal-content {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#updateProfileModal .modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+}
+
+#updateProfileModal .modal-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#updateProfileModal .modal-title i {
+    color: #00c6ff;
+}
+
+#updateProfileModal .modal-body {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#updateProfileModal .form-group {
+    margin-bottom: 1.5rem;
+}
+
+#updateProfileModal .form-group label {
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+#updateProfileModal .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 0.8rem 1rem;
+    transition: all 0.3s ease;
+}
+
+#updateProfileModal .form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #00c6ff;
+    box-shadow: 0 0 0 2px rgba(0, 198, 255, 0.25);
+}
+
+#updateProfileModal .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#updateProfileModal .modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+}
+
+#updateProfileModal .btn {
+    padding: 0.8rem 1.5rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#updateProfileModal .btn-primary {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border: none;
+}
+
+#updateProfileModal .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);
+}
+
+#updateProfileModal .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+#updateProfileModal .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Profile Update Success Message */
+#updateProfileModal .alert-success {
+    background: rgba(46, 213, 115, 0.2);
+    border: 1px solid rgba(46, 213, 115, 0.3);
+    color: #2ed573;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Profile Update Error Message */
+#updateProfileModal .alert-danger {
+    background: rgba(255, 71, 87, 0.2);
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    color: #ff4757;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ...existing code... */
+
+/* Change Password Modal Styles */
+#changePasswordModal .modal-content {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#changePasswordModal .modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+}
+
+#changePasswordModal .modal-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+}
+
+#changePasswordModal .modal-title i {
+    color: #00c6ff;
+}
+
+#changePasswordModal .modal-body {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#changePasswordModal .form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+#changePasswordModal .form-group label {
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+#changePasswordModal .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 0.8rem 1rem;
+    padding-right: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+#changePasswordModal .form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #00c6ff;
+    box-shadow: 0 0 0 2px rgba(0, 198, 255, 0.25);
+}
+
+#changePasswordModal .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Password Toggle Button */
+#changePasswordModal .password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+#changePasswordModal .password-toggle:hover {
+    color: #ffffff;
+}
+
+/* Password Strength Indicator */
+#changePasswordModal .password-strength {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+#changePasswordModal .password-strength.weak {
+    background: rgba(255, 71, 87, 0.2);
+    color: #ff4757;
+}
+
+#changePasswordModal .password-strength.medium {
+    background: rgba(255, 168, 1, 0.2);
+    color: #ffa801;
+}
+
+#changePasswordModal .password-strength.strong {
+    background: rgba(46, 213, 115, 0.2);
+    color: #2ed573;
+}
+
+#changePasswordModal .modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+}
+
+#changePasswordModal .btn {
+    padding: 0.8rem 1.5rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#changePasswordModal .btn-primary {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border: none;
+}
+
+#changePasswordModal .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);
+}
+
+#changePasswordModal .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+#changePasswordModal .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Alert Messages */
+#changePasswordModal .alert {
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: none;
+}
+
+#changePasswordModal .alert-success {
+    background: rgba(46, 213, 115, 0.2);
+    border: 1px solid rgba(46, 213, 115, 0.3);
+    color: #2ed573;
+}
+
+#changePasswordModal .alert-danger {
+    background: rgba(255, 71, 87, 0.2);
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    color: #ff4757;
+}
+
+/* Password Requirements List */
+#changePasswordModal .password-requirements {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+#changePasswordModal .password-requirements h6 {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+#changePasswordModal .password-requirements ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+#changePasswordModal .password-requirements li {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+}
+
+#changePasswordModal .password-requirements li i {
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+}
+
+#changePasswordModal .password-requirements li.valid {
+    color: #2ed573;
+}
+
+#changePasswordModal .password-requirements li.invalid {
+    color: rgba(255, 255, 255, 0.5);
 }
 
 /* ...existing code... */
