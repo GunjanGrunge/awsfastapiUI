@@ -110,12 +110,36 @@ function updateHistoryUI(historyData) {
    
     historyContents.innerHTML = historyData.map(item => `
         <tr>
-            <td>${formatDateToCustomString(item.date)}</td>
-            <td>${item.action}</td>
-            <td>${(item.size / (1024 * 1024)).toFixed(2)} MB</td>
-            <td>${item.fileCount}</td>
+            <td>
+                <i class="fas fa-calendar-alt mr-2"></i>
+                ${formatDateToCustomString(item.date)}
+            </td>
+            <td>
+                <i class="fas ${item.action === 'Upload' ? 'fa-upload' : 'fa-download'} mr-2"></i>
+                ${item.action}
+            </td>
+            <td>
+                <i class="fas fa-hdd mr-2"></i>
+                ${(item.size / (1024 * 1024)).toFixed(2)} MB
+            </td>
+            <td>
+                <i class="fas fa-file mr-2"></i>
+                ${item.fileCount}
+            </td>
         </tr>
     `).join('');
+
+    // If no history data, show a message
+    if (historyData.length === 0) {
+        historyContents.innerHTML = `
+            <tr>
+                <td colspan="4" class="text-center py-4">
+                    <i class="fas fa-history fa-2x mb-2 text-muted"></i>
+                    <p class="text-muted mb-0">No history available</p>
+                </td>
+            </tr>
+        `;
+    }
 }
 
 // Single consolidated modal handler function
@@ -219,9 +243,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         auth = window.getAuth(app); // Assign to global auth variable
        
         // Move the auth state observer inside the try block
-        window.onAuthStateChanged(auth, (user) => {
+        window.onAuthStateChanged(auth, async (user) => {
             if (user) {
-                showMainUI(user);
+                await showMainUI(user);
                 // Set up AWS credentials after successful authentication
                 AWS.config.update({
                     region: window.appConfig.AWS_REGION,
@@ -242,23 +266,38 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Function to show the main UI
     async function showMainUI(user) {
-        document.getElementById('login-container').classList.add('d-none');
-        document.getElementById('main-ui').classList.remove('d-none');
+        // Hide the auth container first
+        document.querySelector('.auth-container').style.display = 'none';
+        
+        // Show main UI
+        const mainUI = document.getElementById('main-ui');
+        mainUI.classList.remove('d-none');
+        
+        // Update username display
         document.getElementById('display-name').textContent = user.displayName || user.email || 'User';
-   
+        
         // Initialize the main UI components
-        fetchS3Contents();
-        loadHistory();
-       
-        // Show the folders section by default
-        document.getElementById('folders-section').classList.remove('d-none');
+        await fetchS3Contents('');
+        await loadHistory();
+        
+        // Show the home section by default
+        document.getElementById('home-section').classList.remove('d-none');
+        document.getElementById('folders-section').classList.add('d-none');
         document.getElementById('history-section').classList.add('d-none');
     }
 
     // Function to show the login page
     function showLoginPage() {
-        document.getElementById('login-container').classList.remove('d-none');
+        // Show auth container
+        document.querySelector('.auth-container').style.display = 'flex';
+        
+        // Hide main UI
         document.getElementById('main-ui').classList.add('d-none');
+        
+        // Reset any form inputs
+        document.getElementById('login-username').value = '';
+        document.getElementById('login-password').value = '';
+        document.getElementById('login-error-message').classList.add('d-none');
     }
 
     // Login form submission handler
@@ -266,15 +305,15 @@ document.addEventListener('DOMContentLoaded', async function() {
         event.preventDefault();
         const email = document.getElementById('login-username').value;
         const password = document.getElementById('login-password').value;
-       
+        
         try {
             document.getElementById('login-error-message').classList.add('d-none');
-            const user = await handleLogin(email, password);
-            showMainUI(user);
+            await handleLogin(email, password); // Make sure to await this
         } catch (error) {
             console.error('Error during login:', error);
-            document.getElementById('login-error-message').classList.remove('d-none');
-            document.getElementById('login-error-message').textContent = error.message;
+            const errorMessage = document.getElementById('login-error-message');
+            errorMessage.textContent = error.message;
+            errorMessage.classList.remove('d-none');
         }
     });
 
@@ -282,6 +321,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     async function handleLogin(email, password) {
         try {
             const userCredential = await window.signInWithEmailAndPassword(auth, email, password);
+            await showMainUI(userCredential.user); // Make sure to await this
             showToast('Successfully logged in!', 'success');
             return userCredential.user;
         } catch (error) {
@@ -303,12 +343,15 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     // Logout button handler
-    document.getElementById('logout-button').addEventListener('click', function() {
-        window.signOut(auth).then(() => {
+    document.getElementById('logout-button').addEventListener('click', async function() {
+        try {
+            await window.signOut(auth);
             showLoginPage();
-        }).catch((error) => {
+            showToast('Successfully logged out', 'success');
+        } catch (error) {
             console.error('Error during logout:', error);
-        });
+            showToast('Error logging out', 'danger');
+        }
     });
 
     // Configure AWS using secrets from environment variables
@@ -2308,16 +2351,23 @@ function openChangePasswordModal() {
 
 // Update showMainUI to handle display name
 async function showMainUI(user) {
-    document.getElementById('login-container').classList.add('d-none');
-    document.getElementById('main-ui').classList.remove('d-none');
+    // Hide the auth container first
+    document.querySelector('.auth-container').style.display = 'none';
+    
+    // Show main UI
+    const mainUI = document.getElementById('main-ui');
+    mainUI.classList.remove('d-none');
+    
+    // Update username display
     document.getElementById('display-name').textContent = user.displayName || user.email || 'User';
-
+    
     // Initialize the main UI components
-    fetchS3Contents();
-    loadHistory();
-
-    // Show the folders section by default
-    document.getElementById('folders-section').classList.remove('d-none');
+    await fetchS3Contents('');
+    await loadHistory();
+    
+    // Show the home section by default
+    document.getElementById('home-section').classList.remove('d-none');
+    document.getElementById('folders-section').classList.add('d-none');
     document.getElementById('history-section').classList.add('d-none');
 }
 
@@ -2342,3 +2392,4 @@ document.getElementById('history-link').addEventListener('click', function(e) {
     document.getElementById('folders-section').classList.add('d-none');
     document.getElementById('history-section').classList.remove('d-none');
 });
+
