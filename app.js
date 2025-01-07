@@ -263,6 +263,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                         secretAccessKey: window.appConfig.AWS_SECRET_ACCESS_KEY
                     })
                 });
+                if (user.email === 'shareit@gmail.com') {
+                    showWelcomeConfettiPopup();
+                }
             } else {
                 showLoginPage();
             }
@@ -2615,3 +2618,108 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // ...existing code...
 });
+
+// ...existing code...
+
+function showWelcomeConfettiPopup() {
+    // Create an overlay container
+    const confettiOverlay = document.createElement('div');
+    confettiOverlay.style.position = 'fixed';
+    confettiOverlay.style.top = '0';
+    confettiOverlay.style.left = '0';
+    confettiOverlay.style.width = '100%';
+    confettiOverlay.style.height = '100%';
+    confettiOverlay.style.display = 'flex';
+    confettiOverlay.style.justifyContent = 'center';
+    confettiOverlay.style.alignItems = 'center';
+    confettiOverlay.style.zIndex = '9999';
+    confettiOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+
+    // Create the welcome message with enhanced styling
+    const welcomeBox = document.createElement('div');
+    welcomeBox.innerHTML = '<span style="color:rgb(255, 255, 255); text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Welcome Salamat Sir</span>';
+    welcomeBox.style.background = 'rgba(98, 4, 153, 0.9)';
+    welcomeBox.style.padding = '30px 50px';
+    welcomeBox.style.borderRadius = '15px';
+    welcomeBox.style.fontSize = '2rem';
+    welcomeBox.style.fontWeight = 'bold';
+    welcomeBox.style.textAlign = 'center';
+    welcomeBox.style.position = 'relative';
+    welcomeBox.style.boxShadow = '0 4px 15px rgba(0,0,0,0.3)';
+    welcomeBox.style.animation = 'fadeInScale 0.5s ease-out';
+
+    // Add CSS animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    confettiOverlay.appendChild(welcomeBox);
+    document.body.appendChild(confettiOverlay);
+
+    // Trigger confetti
+    const duration = 3000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 10000 };
+
+    function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+            return clearInterval(interval);
+        }
+
+        const particleCount = 50 * (timeLeft / duration);
+        
+        // Create confetti from both sides
+        confetti(Object.assign({}, defaults, { 
+            particleCount,
+            origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+        }));
+        confetti(Object.assign({}, defaults, { 
+            particleCount,
+            origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+        }));
+    }, 250);
+
+    // Remove after 4s
+    setTimeout(() => {
+        confettiOverlay.style.transition = 'opacity 0.5s ease-out';
+        confettiOverlay.style.opacity = '0';
+        setTimeout(() => {
+            document.body.removeChild(confettiOverlay);
+            document.head.removeChild(style);
+        }, 500);
+    }, 3000);
+}
+
+// ...existing code...
+
+window.onAuthStateChanged(auth, async (user) => {
+    // ...existing code...
+    if (user) {
+        // ...existing code...
+        if (user.email === 'shareit@gmail.com') {
+            showWelcomeConfettiPopup();
+        }
+        // ...existing code...
+    } else {
+        // ...existing code...
+    }
+});
+
+// ...existing code...
