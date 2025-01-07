@@ -353,7 +353,7 @@
                         <div class="card bg-dark text-white">
                             <div class="card-body">
                                 <h5 class="card-title">Total Cost</h5>
-                                <h2 class="mb-0">$<span id="current-cost">0.00</span></h2>
+                                <h2 class="mb-0"><span id="current-cost">0.00</span></h2>
                                 <small class="text-muted" id="cost-date">As of today</small>
                             </div>
                         </div>
@@ -362,7 +362,7 @@
                         <div class="card bg-dark text-white">
                             <div class="card-body">
                                 <h5 class="card-title">Storage Cost</h5>
-                                <h2 class="mb-0">$<span id="storage-cost">0.00</span></h2>
+                                <h2 class="mb-0"><span id="storage-cost">0.00</span></h2>
                                 <small class="text-muted">Monthly estimate</small>
                             </div>
                         </div>
@@ -371,7 +371,7 @@
                         <div class="card bg-dark text-white">
                             <div class="card-body">
                                 <h5 class="card-title">Transfer Cost</h5>
-                                <h2 class="mb-0">$<span id="transfer-cost">0.00</span></h2>
+                                <h2 class="mb-0"><span id="transfer-cost">0.00</span></h2>
                                 <small class="text-muted">Monthly estimate</small>
                             </div>
                         </div>
@@ -400,6 +400,13 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <!-- Add this line for exchange rate -->
+                    <p id="exchange-rate" class="text-muted mb-3"></p>
+                    <!-- ...existing cost display elements... -->
                 </div>
             </div>
         </div>

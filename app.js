@@ -2280,7 +2280,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         const year = date.getFullYear();
         return `${day}${getOrdinalSuffix(day)} ${month} ${year}`;
     }
-    async function updateCostModal() {
+    async function updateCosts() {
         try {
             // Get total storage used
             const data = await s3.listObjectsV2({
@@ -2292,22 +2292,62 @@ document.addEventListener('DOMContentLoaded', async function() {
                 totalSize += item.Size;
             });
 
-            // Calculate costs (using AWS S3 Standard pricing)
+            // Calculate costs in USD
             const storageGB = totalSize / (1024 * 1024 * 1024);
-            const storageCost = storageGB * 0.023; // $0.023 per GB per month
-           
-            // Calculate transfer cost (example: assuming 10% of storage is transferred)
+            const storageCostUSD = storageGB * 0.023; // $0.023 per GB per month
             const transferGB = storageGB * 0.1;
-            const transferCost = transferGB * 0.09; // $0.09 per GB for data transfer
+            const transferCostUSD = transferGB * 0.09; // $0.09 per GB for data transfer
+            const totalCostUSD = storageCostUSD + transferCostUSD;
 
-            // Total cost
-            const totalCost = storageCost + transferCost;
+            // Convert USD to INR using Exchange Rate API
+            try {
+                const response = await fetch('https://open.er-api.com/v6/latest/USD');
+                const data = await response.json();
+                const usdToInrRate = data.rates.INR;
 
-            // Update modal with costs
-            document.getElementById('current-cost').textContent = totalCost.toFixed(2);
-            document.getElementById('storage-cost').textContent = storageCost.toFixed(2);
-            document.getElementById('transfer-cost').textContent = transferCost.toFixed(2);
-            document.getElementById('cost-date').textContent = `As of ${formatDate().toLocaleString()}`;
+                // Convert costs to INR
+                const storageCostINR = storageCostUSD * usdToInrRate;
+                const transferCostINR = transferCostUSD * usdToInrRate;
+                const totalCostINR = totalCostUSD * usdToInrRate;
+
+                // Format numbers with Indian currency format
+                const formatIndianCurrency = (amount) => {
+                    return new Intl.NumberFormat('en-IN', {
+                        style: 'currency',
+                        currency: 'INR',
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    }).format(amount);
+                };
+
+                // Update UI with both USD and INR values (removed $ symbol)
+                document.getElementById('current-cost').innerHTML = `
+                    ${formatIndianCurrency(totalCostINR)}<br>
+                    <small class="text-muted">(${totalCostUSD.toFixed(2)} USD)</small>
+                `;
+                document.getElementById('storage-cost').innerHTML = `
+                    ${formatIndianCurrency(storageCostINR)}<br>
+                    <small class="text-muted">(${storageCostUSD.toFixed(2)} USD)</small>
+                `;
+                document.getElementById('transfer-cost').innerHTML = `
+                    ${formatIndianCurrency(transferCostINR)}<br>
+                    <small class="text-muted">(${transferCostUSD.toFixed(2)} USD)</small>
+                `;
+                document.getElementById('cost-date').textContent = `As of ${formatDate()}`;
+                document.getElementById('exchange-rate').textContent = 
+                    `Exchange Rate: 1 USD = ${usdToInrRate.toFixed(2)} INR`;
+
+            } catch (conversionError) {
+                console.error('Error converting currency:', conversionError);
+                showToast('Error converting currency. Showing amounts in USD only.', 'warning');
+                
+                // Fallback to USD if conversion fails (moved USD symbol to end)
+                document.getElementById('current-cost').textContent = `${totalCostUSD.toFixed(2)} USD`;
+                document.getElementById('storage-cost').textContent = `${storageCostUSD.toFixed(2)} USD`;
+                document.getElementById('transfer-cost').textContent = `${transferCostUSD.toFixed(2)} USD`;
+                document.getElementById('cost-date').textContent = `As of ${formatDate()}`;
+                document.getElementById('exchange-rate').textContent = 'Exchange rate unavailable';
+            }
 
         } catch (error) {
             console.error('Error calculating costs:', error);
@@ -2510,22 +2550,62 @@ document.addEventListener('DOMContentLoaded', async function() {
                 totalSize += item.Size;
             });
 
-            // Calculate costs (using AWS S3 Standard pricing)
+            // Calculate costs in USD
             const storageGB = totalSize / (1024 * 1024 * 1024);
-            const storageCost = storageGB * 0.023; // $0.023 per GB per month
-           
-            // Calculate transfer cost (example: assuming 10% of storage is transferred)
+            const storageCostUSD = storageGB * 0.023; // $0.023 per GB per month
             const transferGB = storageGB * 0.1;
-            const transferCost = transferGB * 0.09; // $0.09 per GB for data transfer
+            const transferCostUSD = transferGB * 0.09; // $0.09 per GB for data transfer
+            const totalCostUSD = storageCostUSD + transferCostUSD;
 
-            // Total cost
-            const totalCost = storageCost + transferCost;
+            // Convert USD to INR using Exchange Rate API
+            try {
+                const response = await fetch('https://open.er-api.com/v6/latest/USD');
+                const data = await response.json();
+                const usdToInrRate = data.rates.INR;
 
-            // Update modal with costs
-            document.getElementById('current-cost').textContent = totalCost.toFixed(2);
-            document.getElementById('storage-cost').textContent = storageCost.toFixed(2);
-            document.getElementById('transfer-cost').textContent = transferCost.toFixed(2);
-            document.getElementById('cost-date').textContent = `As of ${formatDate().toLocaleString()}`;
+                // Convert costs to INR
+                const storageCostINR = storageCostUSD * usdToInrRate;
+                const transferCostINR = transferCostUSD * usdToInrRate;
+                const totalCostINR = totalCostUSD * usdToInrRate;
+
+                // Format numbers with Indian currency format
+                const formatIndianCurrency = (amount) => {
+                    return new Intl.NumberFormat('en-IN', {
+                        style: 'currency',
+                        currency: 'INR',
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    }).format(amount);
+                };
+
+                // Update UI with both USD and INR values (removed $ symbol)
+                document.getElementById('current-cost').innerHTML = `
+                    ${formatIndianCurrency(totalCostINR)}<br>
+                    <small class="text-muted">(${totalCostUSD.toFixed(2)} USD)</small>
+                `;
+                document.getElementById('storage-cost').innerHTML = `
+                    ${formatIndianCurrency(storageCostINR)}<br>
+                    <small class="text-muted">(${storageCostUSD.toFixed(2)} USD)</small>
+                `;
+                document.getElementById('transfer-cost').innerHTML = `
+                    ${formatIndianCurrency(transferCostINR)}<br>
+                    <small class="text-muted">(${transferCostUSD.toFixed(2)} USD)</small>
+                `;
+                document.getElementById('cost-date').textContent = `As of ${formatDate()}`;
+                document.getElementById('exchange-rate').textContent = 
+                    `Exchange Rate: 1 USD = ${usdToInrRate.toFixed(2)} INR`;
+
+            } catch (conversionError) {
+                console.error('Error converting currency:', conversionError);
+                showToast('Error converting currency. Showing amounts in USD only.', 'warning');
+                
+                // Fallback to USD if conversion fails (moved USD symbol to end)
+                document.getElementById('current-cost').textContent = `${totalCostUSD.toFixed(2)} USD`;
+                document.getElementById('storage-cost').textContent = `${storageCostUSD.toFixed(2)} USD`;
+                document.getElementById('transfer-cost').textContent = `${transferCostUSD.toFixed(2)} USD`;
+                document.getElementById('cost-date').textContent = `As of ${formatDate()}`;
+                document.getElementById('exchange-rate').textContent = 'Exchange rate unavailable';
+            }
 
         } catch (error) {
             console.error('Error calculating costs:', error);
