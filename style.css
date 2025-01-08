@@ -3383,5 +3383,680 @@ body, .navbar, .modal-title {
 }
 
 #cost-section .text-muted {
-    color: rgba(255, 255, 255, 0.7) !important;
+    color: rgb(0 255 140 / 70%) !important;
+}
+
+/* ...existing code... */
+
+/* History Table Scrollable Styles */
+.history-table-section {
+    position: relative;
+    max-height: 500px;
+    overflow: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+}
+
+.history-table-section table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.history-table-section thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.history-table-section thead th {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: #ffffff;
+    padding: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    border: none;
+}
+
+.history-table-section tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+.history-table-section tbody tr:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+.history-table-section tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: middle;
+}
+
+/* Custom Scrollbar */
+.history-table-section::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.history-table-section::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.history-table-section::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 4px;
+}
+
+.history-table-section::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .history-table-section {
+        max-height: 400px;
+    }
+
+    .history-table-section thead th,
+    .history-table-section tbody td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .history-table-section {
+        margin: 0 -15px; /* Expand table to full width on mobile */
+        border-radius: 0;
+    }
+}
+
+/* Empty State */
+.history-table-section .empty-state {
+    padding: 2rem;
+    text-align: center;
+    color: #6c757d;
+}
+
+.history-table-section .empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #dee2e6;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* History Table Styles */
+.history-container {
+    position: relative;
+    margin: 20px 0;
+}
+
+.history-table-wrapper {
+    max-height: 600px;
+    overflow-y: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.history-table-wrapper table {
+    margin-bottom: 0;
+}
+
+.history-table-wrapper thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+}
+
+.history-table-wrapper thead th {
+    color: #ffffff;
+    font-weight: 600;
+    padding: 15px;
+    border: none;
+}
+
+.history-table-wrapper tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.history-table-wrapper tbody tr:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+/* Custom Scrollbar */
+.history-table-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.history-table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.history-table-wrapper::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 3px;
+}
+
+.history-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+/* Empty State Styling */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #95a5a6;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .history-table-wrapper {
+        max-height: 400px;
+    }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* History Table Icon Colors */
+.history-table-wrapper tbody td i.fa-calendar-alt {
+    color: #3498db;  /* Blue */
+}
+
+.history-table-wrapper tbody td i.fa-upload {
+    color: #2ecc71;  /* Green */
+}
+
+.history-table-wrapper tbody td i.fa-download {
+    color: #e74c3c;  /* Red */
+}
+
+.history-table-wrapper tbody td i.fa-folder {
+    color: #f1c40f;  /* Yellow */
+}
+
+.history-table-wrapper tbody td i.fa-file {
+    color: #95a5a6;  /* Gray */
+}
+
+.history-table-wrapper tbody td i.fa-hdd {
+    color: #9b59b6;  /* Purple */
+}
+
+/* Clear History Button Styles */
+#clear-history-button {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#clear-history-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+}
+
+#clear-history-button i {
+    color: #ffffff;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* History Table Styles */
+.history-table-wrapper table {
+    table-layout: fixed; /* Ensure table layout is fixed */
+    width: 100%;
+}
+
+.history-table-wrapper th, .history-table-wrapper td {
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+}
+
+.history-table-wrapper th {
+    text-align: center; /* Center align table headers */
+}
+
+.history-table-wrapper td {
+    text-align: center; /* Center align table cells */
+}
+
+.history-table-wrapper td i {
+    margin-right: 5px; /* Add space between icon and text */
+}
+
+.history-table-wrapper td .action-icon {
+    display: inline-flex;
+    align-items: center;
+}
+
+.history-table-wrapper td .size-text {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* History Table Icon Colors */
+.history-table-wrapper tbody td i.fa-calendar-alt {
+    color: #3498db;  /* Blue */
+}
+
+.history-table-wrapper tbody td i.fa-upload {
+    color: #2ecc71;  /* Green */
+}
+
+.history-table-wrapper tbody td i.fa-download {
+    color: #e74c3c;  /* Red */
+}
+
+.history-table-wrapper tbody td i.fa-folder {
+    color: #f1c40f;  /* Yellow */
+}
+
+.history-table-wrapper tbody td i.fa-file {
+    color: #95a5a6;  /* Gray */
+}
+
+.history-table-wrapper tbody td i.fa-hdd {
+    color: #9b59b6;  /* Purple */
+}
+
+/* Clear History Button Styles */
+#clear-history-button {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#clear-history-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+}
+
+#clear-history-button i {
+    color: #ffffff;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* Number Cell Alignment Styles */
+.history-table-wrapper .number-cell {
+    text-align: left !important;
+    padding-right: 2rem !important;
+}
+
+.history-table-wrapper .cell-content {
+    display: flex;
+    align-items: center;
+}
+
+.history-table-wrapper .cell-content i {
+    width: 20px;
+    text-align: center;
+    margin-right: 8px;
+}
+
+.history-table-wrapper .cell-content span {
+    flex: 1;
+    text-align: right;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 0.9rem;
+}
+
+/* Make sure table headers align with content */
+.history-table-wrapper thead th:nth-last-child(2),
+.history-table-wrapper thead th:last-child {
+    text-align: left !important;
+    padding-right: 2rem !important;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* File/Folder name cell styles */
+.history-table-wrapper td span[title] {
+    cursor: help;
+    position: relative;
+}
+
+.history-table-wrapper td span[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -30px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 1000;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* File/Folder column alignment styles */
+.history-table-wrapper td.file-folder-cell {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem !important;
+    gap: 8px;
+}
+
+.history-table-wrapper td.file-folder-cell i {
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+}
+
+.history-table-wrapper td.file-folder-cell span {
+    flex: 1;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Ensure all table cells have consistent padding */
+.history-table-wrapper th, 
+.history-table-wrapper td {
+    padding: 0.75rem;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* Scrollable Folders Table */
+#folders-section .card-body {
+    padding: 0;
+    height: calc(100vh - 200px); /* Adjust the height as needed */
+    overflow: hidden; /* Remove scroll from card-body */
+}
+
+#folders-section .table-responsive {
+    height: 100%; /* Make table-responsive take full height */
+    overflow-y: auto; /* Add vertical scroll to table-responsive */
+}
+
+/* Customize scrollbar for the table-responsive */
+#folders-section .table-responsive::-webkit-scrollbar {
+    width: 8px;
+}
+
+#folders-section .table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#folders-section .table-responsive::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+#folders-section .table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Ensure table header text remains white */
+#folders-section thead th {
+    color: #ffffff !important;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* Updated Scrollable Folders Table Styles */
+#folders-section .card-body {
+    padding: 0;
+    height: calc(100vh - 200px); /* Adjust the height as needed */
+    overflow: hidden; /* Remove scroll from card-body */
+}
+
+#folders-section .table-responsive {
+    height: 100%; /* Make table-responsive take full height */
+    overflow-y: auto; /* Add vertical scroll to table-responsive */
+}
+
+/* Customize scrollbar for the table-responsive */
+#folders-section .table-responsive::-webkit-scrollbar {
+    width: 8px;
+}
+
+#folders-section .table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#folders-section .table-responsive::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+#folders-section .table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Sticky Header Styles */
+#folders-section thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    transition: background-color 0.3s ease;
+}
+
+#folders-section thead th {
+    position: sticky;
+    top: 0;
+    background: #2c3e50;
+    color: #ffffff !important;
+    padding: 1rem;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+/* Add transparent background effect on scroll */
+#folders-section .card-body.scrolled thead th {
+    background: rgba(44, 62, 80, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Add shadow to header when scrolling */
+#folders-section .card-body.scrolled thead::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 5px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* Keep the text color consistent */
+#folders-section thead th {
+    color: #ffffff !important;
+}
+
+/* Improve table row hover effect */
+#folders-section tbody tr:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+/* Custom Scrollbar */
+#folders-section .card-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+#folders-section .card-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#folders-section .card-body::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 4px;
+}
+
+#folders-section .card-body::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* Folders Section Table Styles */
+#folders-section .card {
+    overflow: hidden; /* Ensure the shadow doesn't overflow */
+}
+
+#folders-section .card-header {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: #ffffff;
+    border-bottom: none;
+}
+
+#folders-section .table-responsive {
+    max-height: 70vh; /* Adjust height as needed */
+    overflow-y: auto;
+}
+
+#folders-section table {
+    margin-bottom: 0;
+}
+
+#folders-section thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+#folders-section thead th {
+    position: sticky;
+    top: 0;
+    background: #2c3e50;
+    color: #ffffff !important;
+    padding: 1rem;
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Add transparent background effect on scroll */
+#folders-section .table-responsive.scrolled thead th {
+    background: rgba(44, 62, 80, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Add shadow to header when scrolling */
+#folders-section .table-responsive.scrolled thead::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 5px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* Folders Section Table Styles */
+#folders-section .card {
+    overflow: hidden;
+}
+
+#folders-section .card-header {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: #ffffff;
+    border-bottom: none;
+}
+
+/* Remove card-body scrolling and max-height */
+#folders-section .card-body {
+    padding: 0;
+    position: relative;
+}
+
+/* Make table-responsive handle all scrolling */
+#folders-section .table-responsive {
+    max-height: calc(100vh - 250px); /* Adjust this value based on your needs */
+    overflow-y: auto;
+}
+
+#folders-section table {
+    margin-bottom: 0;
+}
+
+#folders-section thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+#folders-section thead th {
+    position: sticky;
+    top: 0;
+    background: #2c3e50;
+    color: #ffffff !important;
+    padding: 1rem;
+    font-weight: 600;
+    border: none;
+}
+
+/* Custom Scrollbar for table-responsive */
+#folders-section .table-responsive::-webkit-scrollbar {
+    width: 8px;
+}
+
+#folders-section .table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#folders-section .table-responsive::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 4px;
+}
+
+#folders-section .table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
 }

@@ -102,53 +102,68 @@ function formatDateToCustomString(dateString) {
         }
     };
 
-    return `${day}${ordinal(day)} ${month} ${year}, ${time}`;
+    return {
+        date: `${day}${ordinal(day)} ${month} ${year}`,
+        time: time
+    };
 }
 
 // Add updateHistoryUI function near the top with other global functions
 function updateHistoryUI(historyData) {
     const historyContents = document.getElementById('history-contents');
-    if (!historyContents) {
-        console.error('History contents element not found');
+    const emptyState = document.getElementById('history-empty-state');
+    
+    if (!historyContents || !emptyState) return;
+
+    if (!historyData || historyData.length === 0) {
+        historyContents.innerHTML = '';
+        emptyState.classList.remove('d-none');
         return;
     }
-   
-    historyContents.innerHTML = historyData.map(item => `
-        <tr>
-            <td>
-                <i class="fas fa-calendar-alt mr-2"></i>
-                ${formatDateToCustomString(item.date)}
-            </td>
-            <td>
-                <i class="fas ${item.action === 'Upload' ? 'fa-upload' : 'fa-download'} mr-2"></i>
-                ${item.action}
-            </td>
-            <td>
-                <i class="fas ${item.action === 'Upload' ? 'fa-folder' : 'fa-file'} mr-2"></i>
-                ${item.itemName || 'Unknown'}
-            </td>
-            <td>
-                <i class="fas fa-hdd mr-2"></i>
-                ${(item.size / (1024 * 1024)).toFixed(2)} MB
-            </td>
-            <td>
-                <i class="fas fa-file mr-2"></i>
-                ${item.fileCount}
-            </td>
-        </tr>
-    `).join('');
 
-    // If no history data, show a message
-    if (historyData.length === 0) {
-        historyContents.innerHTML = `
+    emptyState.classList.add('d-none');
+    historyContents.innerHTML = historyData.map(item => {
+        const { date, time } = formatDateToCustomString(item.date);
+        const displayName = formatFileName(item.itemName);
+        return `
             <tr>
-                <td colspan="5" class="text-center py-4">
-                    <i class="fas fa-history fa-2x mb-2 text-muted"></i>
-                    <p class="text-muted mb-0">No history available</p>
+                <td>
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    ${date}
+                </td>
+                <td>
+                    ${time}
+                </td>
+                <td class="action-icon">
+                    <i class="fas ${item.action === 'Upload' ? 'fa-upload' : 'fa-download'} mr-2"></i>
+                    ${item.action}
+                </td>
+                <td class="file-folder-cell">
+                    <i class="fas ${item.action === 'Upload' ? 'fa-folder' : 'fa-file'}"></i>
+                    <span title="${item.itemName || 'Unknown'}">${displayName}</span>
+                </td>
+                <td class="number-cell">
+                    <div class="cell-content">
+                        <i class="fas fa-hdd mr-2"></i>
+                        <span>${(item.size / (1024 * 1024)).toFixed(2)} MB</span>
+                    </div>
+                </td>
+                <td class="number-cell">
+                    <div class="cell-content">
+                        <i class="fas fa-file mr-2"></i>
+                        <span>${item.fileCount}</span>
+                    </div>
                 </td>
             </tr>
         `;
-    }
+    }).join('');
+}
+
+// Add this helper function after other helper functions
+function formatFileName(name) {
+    if (!name) return 'Unknown';
+    if (name.length <= 9) return name;
+    return `${name.substring(0, 5)}..${name.substring(name.length - 3)}`;
 }
 
 // Single consolidated modal handler function
@@ -2723,3 +2738,86 @@ window.onAuthStateChanged(auth, async (user) => {
 });
 
 // ...existing code...
+
+// Add scroll detection for folders section
+document.addEventListener('DOMContentLoaded', function() {
+    const foldersBody = document.querySelector('#folders-section .card-body');
+    if (foldersBody) {
+        foldersBody.addEventListener('scroll', function() {
+            if (this.scrollTop > 0) {
+                this.classList.add('scrolled');
+            } else {
+                this.classList.remove('scrolled');
+            }
+        });
+    }
+});
+
+/* ...existing code... */
+
+// Add scroll detection for folders table
+document.addEventListener('DOMContentLoaded', function() {
+    const tableResponsive = document.querySelector('#folders-section .table-responsive');
+    if (tableResponsive) {
+        tableResponsive.addEventListener('scroll', function() {
+            if (this.scrollTop > 0) {
+                this.classList.add('scrolled');
+            } else {
+                this.classList.remove('scrolled');
+            }
+        });
+    }
+});
+
+/* ...existing code... */
+
+// ...existing code...
+
+document.addEventListener('DOMContentLoaded', async function() {
+    // ...existing code...
+
+    // Remove guest login button handler and related code
+    /* document.getElementById('guest-login-button').addEventListener('click', async function() {
+        try {
+            await signInAnonymously(auth);
+            showToast('Signed in as guest', 'success');
+        } catch (error) {
+            console.error('Error signing in as guest:', error);
+            showToast('Error signing in as guest', 'danger');
+        }
+    }); */
+
+    // Update onAuthStateChanged to remove guest user handling
+    window.onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            // Remove guest user check
+            const displayName = user.displayName || user.email || 'User';
+            
+            await showMainUI({
+                ...user,
+                displayName: displayName
+            });
+            
+            // Set up AWS credentials after successful authentication
+            AWS.config.update({
+                region: window.appConfig.AWS_REGION,
+                credentials: new AWS.Credentials({
+                    accessKeyId: window.appConfig.AWS_ACCESS_KEY_ID,
+                    secretAccessKey: window.appConfig.AWS_SECRET_ACCESS_KEY
+                })
+            });
+            
+            // Show confetti only for specific user
+            if (user.email === 'shareit@gmail.com') {
+                showWelcomeConfettiPopup();
+            }
+        } else {
+            showLoginPage();
+        }
+    });
+
+    // ...existing code...
+});
+
+// ...existing code...
+

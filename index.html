@@ -53,8 +53,9 @@
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" id="login-password" autocomplete="current-password" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Login</button>
+                            <button type="submit" class="btn btn-primary w-100">Login</button>
                         </form>
+
                         <div class="mt-3 text-center">
                             <a href="#" id="forgot-password-link">Forgot Password?</a>
                         </div>
@@ -299,24 +300,33 @@
                 <h2 class="history-table-title mb-4">Your Activity History</h2>
 
                 <!-- History Table Section -->
-                <div class="history-table-section">
-                    <div class="table-responsive">
-                        <table class="table table-striped">
+                <div class="history-container">
+                    <div class="history-table-wrapper">
+                        <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Date & Time</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
                                     <th>Action</th>
-                                    <th>Name</th>
+                                    <th>File | Folder</th>
                                     <th>Size</th>
-                                    <th>Files</th>
+                                    <th>Total Files</th>
                                 </tr>
                             </thead>
                             <tbody id="history-contents">
-                                <!-- History contents will be displayed here -->
+                                <!-- History contents will be populated here -->
                             </tbody>
                         </table>
+                        <div id="history-empty-state" class="empty-state d-none">
+                            <i class="fas fa-history"></i>
+                            <p>No activity history available</p>
+                        </div>
                     </div>
-                    <button class="btn btn-danger mt-3" id="clear-history-button">
+                </div>
+
+                <!-- Add Clear History Button -->
+                <div class="text-right mt-3">
+                    <button class="btn btn-danger" id="clear-history-button">
                         <i class="fas fa-trash-alt mr-2"></i>Clear History
                     </button>
                 </div>
